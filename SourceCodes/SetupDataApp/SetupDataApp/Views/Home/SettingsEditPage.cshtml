@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sentiment Data Pipeline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="colorlib.com">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="~/assets/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="~/assets/vendor/date-picker/css/datepicker.min.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .bordercss {
+            /*border-top: #ffffff;*/
+            /*border-right: #ffffff;*/
+            /*border-bottom: grey;*/
+            /*border-left: #ffffff;*/
+            /*border-bottom-left-radius: 0px;*/
+            background: #ffffff;
+            margin-bottom: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" style="background: white;border-radius: 5px;padding-top:10px;padding-left:30px;padding-right:30px;padding-bottom:30px;border-color: 7px solid #88893;width: 900px;height: 700px;">
+        <form action=@Url.Action("UpdatePage") method="post" name="sqldbinput" id="wizard">
+            <!-- SECTION 1 -->
+            <h2 style="color: #00A4EF;font-weight: bold;text-align: center">Sentiment Data Pipeline</h2><br>
+            <h5 style="color: #00A4EF;font-weight: bold;text-align: center;font-size: 18px;">Edit Oragnization Settings</h5><br>
+            <section>
+
+                @model List<SetupDataApp.Models.MySettings>
+                    @foreach (var settings in Model)
+                    {
+
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <p>Organization Name</p>
+                        <input type="text" name="org" id="org" class="form-control bordercss" value="@settings.Organization_Name">
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <p>Area of Concern</p>
+                        <input type="text" name="aoc" id="aoc" class="form-control bordercss" value="@settings.AreaOfConcern">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <p>Brand Image URL</p>
+                        <input type="text" name="imgurl" id="imgurl" class="form-control bordercss" value="@settings.Brand_image_URL">
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <p>Keywords</p>
+                        <input type="text" name="keyword" id="keyword" class="form-control bordercss" value="@settings.Keywords" @*style="width: 400px;"*@>
+                    </div>
+                    @*<div class="col-lg-1 col-sm-1">
+                        <button type="button" class="btn btn-primary" style="float: left;margin-left: 19px;" onclick="window.location.href= '/Home/KeywordsPage';"><i class="fa fa-edit" style="padding-bottom: -10px;font-size: 18px;"></i></button>
+                    </div>*@
+                    <div class="col-lg-6 col-sm-6">
+                        <p>Synonyms</p>
+                        <input type="text" name="synonyms" id="synonyms" class="form-control bordercss" value="@settings.Synonyms" @*style="width: 400px;"*@>
+                    </div>
+                    @*<div class="col-lg-1 col-sm-1">
+                        <button type="button" class="btn btn-primary" style="float: left;margin-left: 19px;" onclick="window.location.href= '/Home/SynonymsPage';"><i class="fa fa-edit" style="padding-bottom: -10px;font-size: 18px;"></i></button>
+                    </div>*@
+                    <div class="col-lg-5 col-sm-5">
+                        <select class="form-control bordercss" style="color: #888893;width:400px;" >
+                            <option disabled="" selected="" value="@settings.MarketCode">Language</option>
+                            <option>da-DK</option>
+                            <option>de-AT</option>
+                            <option>de-CH</option>
+                            <option>de-DE</option>
+                            <option>en-AU</option>
+                            <option>en-CA</option>
+                            <option>en-GB</option>
+                            <option>en-ID</option>
+                            <option>en-IE</option>
+                            <option>en-IN</option>
+                            <option>en-MY</option>
+                            <option>en-NZ</option>
+                            <option>en-PH</option>
+                            <option>en-SG</option>
+                            <option>en-US</option>
+                            <option>en-WW</option>
+                            <option>en-XA</option>
+                            <option>en-ZA</option>
+                            <option>es-AR</option>
+                            <option>es-CL</option>
+                            <option>es-ES</option>
+                            <option>es-MX</option>
+                            <option>es-US</option>
+                            <option>es-XL</option>
+                            <option>fi-FI</option>
+                            <option>fr-BE</option>
+                            <option>fr-CA</option>
+                            <option>nl-BE</option>
+                            <option>fr-CH</option>
+                            <option>fr-FR</option>
+                            <option>it-IT</option>
+                            <option>zh-HK</option>
+                            <option>zh-TW</option>
+                            <option>ja-JP</option>
+                            <option>ko-KR</option>
+                            <option>nl-NL</option>
+                            <option>zh-CN</option>
+                            <option>pt-BR</option>
+                            <option>ru-RU</option>
+                            <option>sv-SE</option>
+                            <option>tr-TR</option>
+
+                        </select>
+
+                    </div>
+                    <div class="col-lg-1 col-sm-1">
+                        <button type="button" class="btn btn-primary" style="float: left;margin-left: 19px;" onclick="window.location.href= '/Home/LangRegionPage';"><i class="fa fa-edit" style="padding-bottom: -10px;font-size: 18px;"></i></button>
+                    </div>
+                    <div class="col-lg-5 col-sm-5">
+                        <select class="form-control bordercss" style="color: #888893;width: 400px;">
+                            <option disabled="" selected="" value="@settings.Region">Region</option>
+                            <option>Denmark</option>
+                            <option>Austria</option>
+                            <option>Switzerland</option>
+                            <option>Germany</option>
+                            <option>Australia</option>
+                            <option>Canada</option>
+                            <option>United Kingdom</option>
+                            <option>Indonesia</option>
+                            <option>Ireland</option>
+                            <option>India</option>
+                            <option>Malaysia</option>
+                            <option>New Zealand</option>
+                            <option>Republic of the Philippines</option>
+                            <option>Singapore</option>
+                            <option>United States</option>
+                            <option>English</option>
+                            <option>English</option>
+                            <option>South Africa</option>
+                            <option>Argentina</option>
+                            <option>Chile</option>
+                            <option>Spain</option>
+                            <option>Mexico</option>
+                            <option>United States</option>
+                            <option>Spanish</option>
+                            <option>Finland</option>
+                            <option>France</option>
+                            <option>Canada</option>
+                            <option>Belgium</option>
+                            <option>Switzerland</option>
+                            <option>France</option>
+                            <option>Italy</option>
+                            <option>Hong Kong SAR</option>
+                            <option>Taiwan</option>
+                            <option>Japan</option>
+                            <option>Korea</option>
+                            <option>Netherlands</option>
+                            <option>People's republic of China</option>
+                            <option>Brazil</option>
+                            <option>Russia</option>
+                            <option>Sweden</option>
+                            <option>Turkey</option>
+
+                        </select>
+                    </div>
+                    <div class="col-lg-1 col-sm-1">
+                        <button type="button" class="btn btn-primary" style="float: left;margin-left:19px;" onclick="window.location.href= '/Home/LangRegionPage';"><i class="fa fa-edit" style="padding-bottom: -10px;font-size: 18px;"></i></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-6">
+                        <p style="font-size: 18px;font-weight: bold;">Sentiment Threshold</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <p>Lower Control Unit</p>
+                        <input type="text" name="lcl" id="lcl" class="form-control bordercss" value="@settings.LCL">
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <p>Upper Control Unit</p>
+                        <input type="text" name="ucl" id="ucl" class="form-control bordercss" value="@settings.UCL">
+                    </div>
+                    
+                </div>
+                <br><br>
+                <button type="button" class="btn btn-primary" style="float: left;" onclick="window.location.href= '/Home/SettingsPage';">Cancel</button>
+                <button type="submit" class="btn btn-primary" style="float: right;" @*onclick="window.location.href= '/Home/HomePage';"*@>Submit</button>
+
+                    }
+            </section>
+
+
+        </form>
+    </div>
+
+    <script src="~/assets/js/jquery-3.3.1.min.js"></script>
+
+    <!-- JQUERY STEP -->
+    <script src="~/assets/js/jquery.steps.js"></script>
+
+    <!-- DATE-PICKER -->
+    <script src="~/assets/vendor/date-picker/js/datepicker.js"></script>
+    <script src="~/assets/vendor/date-picker/js/datepicker.en.js"></script>
+
+    <script src="~/assets/js/main.js"></script>
+
+
+</body>
+</html>

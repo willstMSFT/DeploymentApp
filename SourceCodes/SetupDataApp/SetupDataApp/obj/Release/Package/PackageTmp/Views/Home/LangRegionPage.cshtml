@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sentiment Data Pipeline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="colorlib.com">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="~/assets/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="~/assets/vendor/date-picker/css/datepicker.min.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .bordercss {
+            /*border-top: #ffffff;*/
+            /*border-right: #ffffff;*/
+            /*border-bottom: grey;*/
+            /*border-left: #ffffff;*/
+            /*border-bottom-left-radius: 0px;*/
+            background: #ffffff;
+            margin-bottom: 18px;
+        }
+
+        #table {
+            width: 1000px;
+            height: 10px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" style="background: white;border-radius: 5px;padding-top:10px;padding-left:30px;padding-right:30px;padding-bottom:30px;border-color: 7px solid #88893;width: 900px;height: 570px;">
+        <form action="">
+            <!-- SECTION 1 -->
+            <h2 style="color: #00A4EF;font-weight: bold;text-align: center">Sentiment Data Pipeline</h2><br>
+            <h5 style="color: #00A4EF;font-weight: bold;text-align: center;font-size: 18px;">Region - Language</h5><br>
+            <table cellspacing="0" cellpadding="0" border="0" width="800">
+                <tr>
+                    <td>
+                        <table cellspacing="0" cellpadding="1" border="1" width="800">
+                            <tr style="color:white;background-color:#00abeb">
+                                <th style="width: 980px;padding: 10px;text-align: center;border-right-color: #00abeb;">Region</th>
+                                <th style="width: 900px;padding: 10px;text-align: center;">Market Code</th>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width:800px; height:300px; overflow-y:auto;">
+                            <table cellspacing="0" cellpadding="1" border="1" width="800">
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Denmark</td>
+                                    <td style="width: 928px;padding: 10px;">da-DK</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Austria</td>
+                                    <td style="width: 928px;padding: 10px;">de-AT</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Switzerland</td>
+                                    <td style="width: 928px;padding: 10px;">de-CH</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Germany</td>
+                                    <td style="width: 928px;padding: 10px;">de-DE</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Australia</td>
+                                    <td style="width: 928px;padding: 10px;">en-AU</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Canada</td>
+                                    <td style="width: 928px;padding: 10px;">en-CA</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> United Kingdom</td>
+                                    <td style="width: 928px;padding: 10px;">en-GB</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Indonesia</td>
+                                    <td style="width: 928px;padding: 10px;">en-ID</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Ireland</td>
+                                    <td style="width: 928px;padding: 10px;">en-IE</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> India</td>
+                                    <td style="width: 928px;padding: 10px;">en-IN</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Malaysia</td>
+                                    <td style="width: 928px;padding: 10px;">en-MY</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> New Zealand</td>
+                                    <td style="width: 928px;padding: 10px;">en-NZ</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Republic of the Philippines</td>
+                                    <td style="width: 928px;padding: 10px;">en-PH</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Singapore</td>
+                                    <td style="width: 928px;padding: 10px;">en-SG</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> United States</td>
+                                    <td style="width: 928px;padding: 10px;">en-US</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> English</td>
+                                    <td style="width: 928px;padding: 10px;">en-WW</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> English</td>
+                                    <td style="width: 928px;padding: 10px;">en-XA</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> South Africa</td>
+                                    <td style="width: 928px;padding: 10px;">en-ZA</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Argentina</td>
+                                    <td style="width: 928px;padding: 10px;">es-AR</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Chile</td>
+                                    <td style="width: 928px;padding: 10px;">es-CL</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Spain</td>
+                                    <td style="width: 928px;padding: 10px;">es-ES</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Mexico</td>
+                                    <td style="width: 928px;padding: 10px;">es-MX</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> United States</td>
+                                    <td style="width: 928px;padding: 10px;">es-US</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Spanish</td>
+                                    <td style="width: 928px;padding: 10px;">es-XL</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Finland</td>
+                                    <td style="width: 928px;padding: 10px;">fi-FI</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> France</td>
+                                    <td style="width: 928px;padding: 10px;">fr-BE</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Canada</td>
+                                    <td style="width: 928px;padding: 10px;">fr-CA</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Belgium</td>
+                                    <td style="width: 928px;padding: 10px;">nl-BE</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Switzerland</td>
+                                    <td style="width: 928px;padding: 10px;">fr-CH</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> France</td>
+                                    <td style="width: 928px;padding: 10px;">fr-FR</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Italy</td>
+                                    <td style="width: 928px;padding: 10px;">it-IT</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Hong Kong SAR</td>
+                                    <td style="width: 928px;padding: 10px;">zh-HK</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-angle-double-right"></i> Taiwan</td>
+                                    <td style="width: 928px;padding: 10px;">zh-TW</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Japan</td>
+                                    <td style="width: 928px;padding: 10px;">ja-JP</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Korea</td>
+                                    <td style="width: 928px;padding: 10px;">ko-KR</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Netherlands</td>
+                                    <td style="width: 928px;padding: 10px;">nl-NL</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> People's republic of China</td>
+                                    <td style="width: 928px;padding: 10px;">zh-CN</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Brazil</td>
+                                    <td style="width: 928px;padding: 10px;">pt-BR</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Russia</td>
+                                    <td style="width: 928px;padding: 10px;">ru-RU</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Sweden</td>
+                                    <td style="width: 928px;padding: 10px;">sv-SE</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 928px;padding: 10px;"><i class="fa fa-angle-double-right"></i> Turkey</td>
+                                    <td style="width: 928px;padding: 10px;">tr-TR</td>
+                                </tr>
+                            </table>
+
+
+
+
+
+
+
+
+        </form>
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary" style="float: left;" onclick="window.location.href= '/Home/SettingsEditPage';">Back</button>
+    <!--                <a href="index.html"><button type="button" class="btn btn-primary" style="float: right;">Submit</button>
+    -->
+    <script src="~/assets/js/jquery-3.3.1.min.js"></script>
+
+    <!-- JQUERY STEP -->
+    <script src="~/assets/js/jquery.steps.js"></script>
+
+    <!-- DATE-PICKER -->
+    <script src="~/assets/vendor/date-picker/js/datepicker.js"></script>
+    <script src="~/assets/vendor/date-picker/js/datepicker.en.js"></script>
+
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+</html>

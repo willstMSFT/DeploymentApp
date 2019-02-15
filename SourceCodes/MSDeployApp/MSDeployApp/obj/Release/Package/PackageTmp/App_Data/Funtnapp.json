@@ -1,0 +1,1003 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_test1123412_name": {
+            "defaultValue": "test1123412te12121",
+            "type": "string"
+        },
+        "serverfarms_CentralUSPlan_name": {
+            "defaultValue": "CentralUSPlante1212",
+            "type": "string"
+        },
+        "config_web_name": {
+            "defaultValue": "web",
+            "type": "string"
+        },
+        "storageAccounts_test1123412ad54_name": {
+            "defaultValue": "test1123412ad54te12121",
+            "type": "string"
+        },
+        "hostNameBindings_test1123412.azurewebsites.net_name": {
+            "defaultValue": "test1123412te12121.azurewebsites.net",
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/38efeaef-028f-479e-9a6c-87a00ab14a98/resourceGroups/test234/providers/Microsoft.Storage/storageAccounts/test1123412ad54'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_test1123412ad54_name')]",
+            "apiVersion": "2018-07-01",
+            "location": "centralus",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": false,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "enabled": true
+                        },
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/38efeaef-028f-479e-9a6c-87a00ab14a98/resourceGroups/test234/providers/Microsoft.Web/serverfarms/CentralUSPlan'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "Y1",
+                "tier": "Dynamic",
+                "size": "Y1",
+                "family": "Y",
+                "capacity": 0
+            },
+            "kind": "functionapp",
+            "name": "[parameters('serverfarms_CentralUSPlan_name')]",
+            "apiVersion": "2016-09-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "name": "[parameters('serverfarms_CentralUSPlan_name')]",
+                "workerTierName": null,
+                "adminSiteName": null,
+                "hostingEnvironmentProfile": null,
+                "perSiteScaling": false,
+                "reserved": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/38efeaef-028f-479e-9a6c-87a00ab14a98/resourceGroups/test234/providers/Microsoft.Web/sites/test1123412'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "functionapp",
+            "name": "[parameters('sites_test1123412_name')]",
+            "apiVersion": "2016-08-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_test1123412_name'),'.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(parameters('sites_test1123412_name'),'.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_CentralUSPlan_name'))]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": false,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 1536,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null,
+                "httpsOnly": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_CentralUSPlan_name'))]"
+            ],
+			"resources":[
+			{
+			"apiVersion": "2016-08-01",
+
+                "name": "AbstractExtractor",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						  "methods": [
+							"post"
+						  ],
+
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "run.csx": "#r \"Newtonsoft.Json\"\r\n\r\nusing System;\r\nusing System.Net;\r\nusing Newtonsoft.Json;\r\nusing System.Text.RegularExpressions;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\nusing System.Text;\r\n\r\npublic static async Task<object> Run(HttpRequestMessage req, TraceWriter log)\r\n{\r\n    log.Info($\"Webhook was triggered!\");\r\n\r\n    string jsonContent = await req.Content.ReadAsStringAsync();\r\n    dynamic data = JsonConvert.DeserializeObject(jsonContent);\r\n    string query = data.query;\r\n    string text = data.text;\r\n\r\n    log.Info(query);\r\n\r\n            ManipulateQuery findWords = new ManipulateQuery();\r\n            List<int> splitOnKeyWord = findWords.GetAllIndexes(query, @\"OR|AND\");\r\n            List<string> words = new List<string>();\r\n\r\n            if (splitOnKeyWord.Count != 0)\r\n            {\r\n                List<string> roughWords = findWords.SplitQuery(splitOnKeyWord, query);\r\n\r\n                foreach (string word in roughWords)\r\n                {\r\n                    List<string> phrases = findWords.CleanWords(word);\r\n                    foreach (string phrase in phrases)\r\n                    {\r\n                        words.Add(phrase);\r\n                    }\r\n                }\r\n            }\r\n            else\r\n            {\r\n                List<string> phrases = findWords.CleanWords(query);\r\n                foreach (string phrase in phrases)\r\n                {\r\n                    words.Add(phrase);\r\n                }\r\n            }\r\n\r\n            if(words.Count == 0)\r\n            {\r\n                throw new ArgumentException(\"No keywords found\");\r\n            }\r\n\r\n            SearchText searchText = new SearchText();\r\n\r\n            dynamic newAbstractMatches = searchText.AbstractSelector(words, text);\r\n\r\n\r\n\r\n\r\n    return req.CreateResponse(HttpStatusCode.OK, new {\r\n        Snippet = newAbstractMatches.extract,\r\n        Matches = newAbstractMatches.items\r\n    });\r\n\r\n}\r\n\r\n    public class ManipulateQuery\r\n    {\r\n        public List<int> GetAllIndexes(string query, string tomatch)\r\n        {\r\n            List<int> indexes = new List<int>();\r\n\r\n            if (String.IsNullOrEmpty(query))\r\n                throw new ArgumentException(\"The query is null or empty\");\r\n\r\n            char[] specialCharacters = { '(', ')', ' ', '\"' };\r\n\r\n\r\n            foreach (Match match in Regex.Matches(query, tomatch))\r\n            {\r\n                bool startsOr = false;\r\n                bool endsOr = false;\r\n                if (match.Index != 0)\r\n                {\r\n                    int startingIndex = query[match.Index - 1];\r\n                    foreach (char special in specialCharacters)\r\n                    {\r\n                        if (startingIndex == special)\r\n                        {\r\n                            startsOr = true;\r\n                            continue;\r\n                        }\r\n                    }\r\n                }\r\n                else\r\n                {\r\n                    startsOr = true;\r\n                }\r\n\r\n                if (query.Length > match.Index + match.Length)\r\n                {\r\n                    int endingIndex = query[match.Index + match.Length];\r\n                    foreach (char special in specialCharacters)\r\n                    {\r\n                        if (endingIndex == special)\r\n                        {\r\n                            endsOr = true;\r\n                            continue;\r\n                        }\r\n                    }\r\n                }\r\n                else\r\n                {\r\n                    endsOr = true;\r\n                }\r\n\r\n                if (startsOr && endsOr)\r\n                {\r\n                    indexes.Add(match.Index);\r\n                }\r\n\r\n            }\r\n\r\n            return indexes;\r\n\r\n        }\r\n\r\n        public List<string> SplitQuery(List<int> indexes, string query)\r\n        {\r\n            List<string> words = new List<string>();\r\n\r\n            int length;\r\n            int currentIndex;\r\n            int previousItem;\r\n            int lengthOfPrevious;\r\n\r\n            foreach (int i in indexes)\r\n            {\r\n                if (query[i] == 'O')\r\n                {\r\n                    length = 2;\r\n                }\r\n                else\r\n                {\r\n                    length = 3;\r\n                }\r\n\r\n\r\n                if (query.Length == length)\r\n                {\r\n                    break;\r\n                }\r\n                else if (indexes[0] == i)\r\n                {\r\n                    if (i != 0)\r\n                    {\r\n                        words.Add(query.Substring(0, i));\r\n                    }\r\n\r\n                    if (indexes.Count == 1)\r\n                    {\r\n                        words.Add(query.Substring(i + length, query.Length - (i + length)));\r\n                        break;\r\n                    }\r\n                    continue;\r\n                }\r\n                else if (indexes.Last() == i)\r\n                {\r\n                    currentIndex = indexes.IndexOf(i);\r\n                    previousItem = indexes[currentIndex - 1];\r\n\r\n                    if (query[previousItem] == 'O')\r\n                    {\r\n                        lengthOfPrevious = 2;\r\n                    }\r\n                    else\r\n                    {\r\n                        lengthOfPrevious = 3;\r\n                    }\r\n\r\n                    words.Add(query.Substring(previousItem + lengthOfPrevious, i - previousItem - lengthOfPrevious));\r\n\r\n                    if (query.Length > i + length)\r\n                    {\r\n                        words.Add(query.Substring(i + length, query.Length - (i + length)));\r\n                    }\r\n                    continue;\r\n                }\r\n                else\r\n                {\r\n                    //Works out words to the left\r\n                    currentIndex = indexes.IndexOf(i);\r\n                    previousItem = indexes[currentIndex - 1];\r\n\r\n                    if (query[previousItem] == 'O')\r\n                    {\r\n                        lengthOfPrevious = 2;\r\n                    }\r\n                    else\r\n                    {\r\n                        lengthOfPrevious = 3;\r\n                    }\r\n\r\n                    words.Add(query.Substring(previousItem + lengthOfPrevious, i - previousItem - lengthOfPrevious));\r\n                }\r\n            }\r\n            return words;\r\n        }\r\n\r\n        public List<string> CleanWords(string word)\r\n        {\r\n            List<string> words = new List<string>();\r\n\r\n            StringBuilder sb = new StringBuilder();\r\n\r\n            bool isOpenQuote = false;\r\n            bool isExclusion = false;\r\n\r\n            foreach (char c in word)\r\n            {\r\n                switch (c)\r\n                {\r\n                    case '-':\r\n                        isExclusion = !isExclusion;\r\n                        break;\r\n                    case '(':\r\n                        break;\r\n                    case ')':\r\n                        if (!isExclusion)\r\n                        {\r\n                            if (sb.Length > 0)\r\n                            {\r\n                                words.Add(sb.ToString());\r\n                                sb.Clear();\r\n                                break;\r\n                            }\r\n                            break;\r\n                        }\r\n                        break;\r\n                    case '\"':\r\n                        isOpenQuote = !isOpenQuote;\r\n                        if (!isExclusion)\r\n                        {\r\n                            if (!isOpenQuote)\r\n                            {\r\n                                if (sb.Length > 0)\r\n                                {\r\n                                    words.Add(sb.ToString());\r\n                                    sb.Clear();\r\n                                }\r\n                                break;\r\n                            }\r\n                        }\r\n                        break;\r\n                    case ' ':\r\n                        if (isOpenQuote)\r\n                        {\r\n                            if (!isExclusion)\r\n                            {\r\n                                sb.Append(c);\r\n                                break;\r\n                            }\r\n                            break;\r\n                        }\r\n                        if (!isExclusion)\r\n                        {\r\n                            if (sb.Length > 0)\r\n                            {\r\n                                words.Add(sb.ToString());\r\n                                sb.Clear();\r\n                                break;\r\n                            }\r\n                            break;\r\n                        }\r\n                        else\r\n                        {\r\n                            isExclusion = !isExclusion;\r\n                            break;\r\n                        }\r\n                    default:\r\n                        if (!isExclusion)\r\n                        {\r\n                            sb.Append(c);\r\n                            break;\r\n                        }\r\n                        break;\r\n                }\r\n            }\r\n            if (sb.Length > 0)\r\n            {\r\n                words.Add(sb.ToString());\r\n                sb.Clear();\r\n            }\r\n            return words;\r\n        }\r\n\r\n    }\r\n\r\npublic class SearchText\r\n{\r\n    public object AbstractSelector(List<string> keyWords, string text)\r\n    {\r\n        string snippet = null;\r\n        bool snippetFlag = false;\r\n        List<string> matchedWords = new List<string> { };\r\n\r\n        foreach (string word in keyWords)\r\n        {\r\n            int mentionIndex;\r\n            int i = 1;\r\n            int wordCount = 0;\r\n            int startIndex = 0;\r\n            int endIndex = 0;\r\n            int keyWordCount = keyWords.Count();\r\n\r\n            Match mention = Regex.Match(text, word, RegexOptions.IgnoreCase);\r\n             if (Regex.IsMatch(text, word, RegexOptions.IgnoreCase) && snippetFlag == false)\r\n            {\r\n                matchedWords.Add(word);\r\n                mentionIndex = mention.Index;\r\n            }\r\n            else if (keyWords[keyWordCount - 1] == word  && snippetFlag == false)\r\n            {\r\n                if(Regex.IsMatch(text, word, RegexOptions.IgnoreCase))\r\n                {\r\n                    matchedWords.Add(word);\r\n                }\r\n                mentionIndex = 0;\r\n            }\r\n            else if (Regex.IsMatch(text, word, RegexOptions.IgnoreCase) && snippetFlag == true)\r\n            {\r\n                matchedWords.Add(word);\r\n                continue;\r\n            }\r\n            else\r\n            {\r\n                continue;\r\n\r\n            }\r\n\r\n\r\n            if (mentionIndex == 0)\r\n            {\r\n                startIndex = 0;\r\n            }\r\n            else\r\n            {\r\n                while (wordCount < 25)\r\n                {\r\n                    if (text[mentionIndex - i] == '.' | text[mentionIndex - i] == '\\' | text[mentionIndex - i] == '>' | text[mentionIndex - i] == '?' | text[mentionIndex - i] == '!')\r\n                    {\r\n                        startIndex = mentionIndex - i + 1;\r\n                        break;\r\n                    }\r\n                    else if (text[mentionIndex - i] == ' ')\r\n                    {\r\n                        wordCount = wordCount + 1;\r\n                        startIndex = mentionIndex - i + 1;\r\n                        i = i + 1;\r\n                        continue;\r\n                    }\r\n                    else if (mentionIndex - i == 0)\r\n                    {\r\n                        startIndex = 0;\r\n                        break;\r\n                    }\r\n                    else\r\n                    {\r\n                        i = i + 1;\r\n                        continue;\r\n                    }\r\n                }\r\n            }\r\n\r\n            i = 1;\r\n\r\n            if (wordCount < 25)\r\n            {\r\n                while (wordCount < 25)\r\n                {\r\n                    if (text[mentionIndex + i] == ' ')\r\n                    {\r\n                        wordCount = wordCount + 1;\r\n                        endIndex = mentionIndex + i;\r\n                        i = i + 1;\r\n                    }\r\n                    else if (mentionIndex + i == text.Length - 1)\r\n                    {\r\n                        endIndex = mentionIndex + i;\r\n                        break;\r\n                    }\r\n                    else\r\n                    {\r\n                        i = i + 1;\r\n                        continue;\r\n                    }\r\n                }\r\n            }\r\n            else\r\n            {\r\n                endIndex = mentionIndex + word.Length;\r\n            }\r\n\r\n            snippet = text.Substring(startIndex, endIndex - startIndex + 1);\r\n            if (!(snippet.Last() == '.'))\r\n            {\r\n                snippet = snippet + \"...\";\r\n            }\r\n\r\n            snippetFlag = true;\r\n        }\r\n\r\n        GetObject response = new GetObject();\r\n        response.extract = snippet;\r\n        response.items = new List<Item>();\r\n\r\n         foreach (string item in matchedWords)\r\n         {\r\n            response.items.Add(new Item { match = item });                \r\n         }\r\n\r\n        return response;\r\n    }\r\n\r\n    public class GetObject\r\n    {\r\n        public string extract;\r\n        public List<Item> items { get; set; }\r\n    }\r\n\r\n     public class Item\r\n    {\r\n        public string match { get; set; }\r\n    }\r\n\r\n\r\n    }\r\n",
+					"function.json":"{\r\n\"disabled\": false,\r\n\"bindings\": [\r\n  {\r\n    \"name\": \"req\",\r\n    \"type\": \"httpTrigger\",\r\n    \"direction\": \"in\",\r\n    \"webHookType\": \"genericJson\",\r\n    \"methods\": [\r\n      \"post\"\r\n    ]\r\n  },\r\n  {\r\n    \"name\": \"res\",\r\n    \"type\": \"http\",\r\n    \"direction\": \"out\"\r\n  }\r\n]\r\n}\r\n"
+
+                  }
+			}
+			},
+			{
+				"apiVersion": "2016-08-01",
+
+                "name": "ArticleExtractor",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						  "methods": [
+							"post"
+						  ],
+
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "run.csx": "#r \"Newtonsoft.Json\"\r\n#r \"Microsoft.KnowledgeMining.MainArticleExtractor.dll\"\r\n\r\nusing System;\r\nusing System.Net;\r\nusing Newtonsoft.Json;\r\n\r\nusing Microsoft.KnowledgeMining.MainArticleExtractor.Extractors;\r\n\r\npublic static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)\r\n{\r\n    log.Info($\"Article Extractor was triggered!\");\r\n\r\n    string jsonContent = await req.Content.ReadAsStringAsync();\r\n    dynamic data = JsonConvert.DeserializeObject(jsonContent);\r\n    string content = data.html;\r\n    string url = data.url;\r\n\r\n    if (content == null) {\r\n        return req.CreateResponse(HttpStatusCode.BadRequest, new {\r\n            error = \"'html' property missing from the input JSON\"\r\n        });\r\n    }\r\n\r\n    MainBlockExtractor x = new MainBlockExtractor();\r\n    var result = x.Extract(content, url);\r\n\r\n    return req.CreateResponse(HttpStatusCode.OK, new {\r\n        bodyInHtml = result.BodyInHtml\r\n    });\r\n}\r\n",
+					"function.json":"{\r\n  \"disabled\": false,\r\n  \"bindings\": [\r\n    {\r\n      \"name\": \"req\",\r\n      \"type\": \"httpTrigger\",\r\n      \"direction\": \"in\",\r\n      \"webHookType\": \"genericJson\",\r\n      \"methods\": [\r\n        \"post\"\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"res\",\r\n      \"type\": \"http\",\r\n      \"direction\": \"out\"\r\n    }\r\n  ]\r\n}\r\n",
+					"project.json":"{\r\n\"frameworks\": {\r\n  \"net46\": {\r\n    \"dependencies\": {\r\n      \"HtmlAgilityPack\": \"1.4.9.0\"\r\n    }\r\n  }\r\n}\r\n}\r\n"
+
+                  }
+				}
+			},
+			{
+				"apiVersion": "2016-08-01",
+
+                "name": "ASCIICleanerWebhook",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						  "methods": [
+							"post"
+						  ],
+
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "run.csx": "#r \"Newtonsoft.Json\"\r\n\r\n#load \"..\\Shared\\StringUtilities.csx\"\r\n\r\nusing System.Net;\r\n\r\npublic static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)\r\n{\r\n    log.Info($\"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}\");\r\n\r\n    // parse query parameter\r\n    string text = req.GetQueryNameValuePairs()\r\n        .FirstOrDefault(q => string.Compare(q.Key, \"text\", true) == 0)\r\n        .Value;\r\n\r\n    // Get request body\r\n    dynamic data = await req.Content.ReadAsAsync<object>();\r\n\r\n    // Set name to query string or body data\r\n    text = text ?? data?.text;\r\n\r\n    string asciiText = new StringUtilities().RemoveUnicode(text);\r\n\r\n    return text == null\r\n        ? req.CreateResponse(HttpStatusCode.BadRequest, \"Please pass a text parameter on the query string or in the request body\")\r\n        : req.CreateResponse(HttpStatusCode.OK, new { text = asciiText });\r\n}\r\n",
+					"sample.dat":"{\r\n    \"first\": \"Azure\",\r\n    \"last\": \"Functions\"\r\n}\r\n"
+
+                  }
+				}
+			},
+			{
+				"apiVersion": "2016-08-01",
+
+                "name": "DocumentToText",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						  "methods": [
+							"post"
+						  ],
+
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "run.csx": "#r \"Newtonsoft.Json\"\r\n\r\nusing System;\r\nusing System.Net;\r\nusing System.Text;\r\nusing Newtonsoft.Json;\r\n\r\nusing TikaOnDotNet.TextExtraction;\r\n\r\npublic static async Task<object> Run(HttpRequestMessage req, TraceWriter log)\r\n{\r\n    log.Info($\"DocumentConverter webhook was triggered!\");\r\n\r\n    string jsonContent = await req.Content.ReadAsStringAsync();\r\n    dynamic data = JsonConvert.DeserializeObject(jsonContent);\r\n\r\n    if (data.document == null) {\r\n        return req.CreateResponse(HttpStatusCode.BadRequest, new {\r\n            error = \"Please pass document property in the input object\"\r\n        });\r\n    }\r\n\r\n    log.Info($\"Input document with length {data.document.ToString().Length}\");\r\n\r\n    var input = Convert.FromBase64String(data.document.ToString());\r\n\r\n    var resultObj = new TextExtractor().Extract(input);\r\n\r\n    var result = resultObj.Text.Trim();\r\n\r\n    log.Info($\"DocumentConverter webhook finished with result '{result}'\");\r\n\r\n    return req.CreateResponse(HttpStatusCode.OK, new {\r\n        text = result\r\n    });\r\n\r\n}\r\n",
+					"function.json":"{\r\n  \"bindings\": [\r\n    {\r\n      \"type\": \"httpTrigger\",\r\n      \"direction\": \"in\",\r\n      \"webHookType\": \"genericJson\",\r\n      \"name\": \"req\",\r\n      \"methods\": [\r\n        \"post\"\r\n      ]\r\n    },\r\n    {\r\n      \"type\": \"http\",\r\n      \"direction\": \"out\",\r\n      \"name\": \"res\"\r\n    }\r\n  ],\r\n  \"disabled\": false\r\n}\r\n",
+					"project.json":"{\r\n  \"frameworks\": {\r\n    \"net46\":{\r\n      \"dependencies\": {\r\n        \"TikaOnDotnet.TextExtractor\": \"1.14.1\",\r\n        \"TikaOnDotNet\": \"1.14.1\",\r\n        \"IKVM\": \"8.1.5717.0\"\r\n      }\r\n    }\r\n  }\r\n}\r\n"
+
+                  }
+				}
+			},
+			{
+				"apiVersion": "2016-08-01",
+
+                "name": "EmailAddressExtractor",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						  "methods": [
+							"post"
+						  ],
+
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "run.csx": "#r \"Newtonsoft.Json\"\r\n\r\nusing System;\r\nusing System.Net;\r\nusing System.Text.RegularExpressions;\r\nusing Newtonsoft.Json;\r\n\r\npublic static async Task<object> Run(HttpRequestMessage req, TraceWriter log)\r\n{\r\n    log.Info($\"EmailAddress Webhook was triggered!\");\r\n\r\n    string jsonContent = await req.Content.ReadAsStringAsync();\r\n    dynamic data = JsonConvert.DeserializeObject(jsonContent);\r\n\r\n    List<dynamic> result = new List<dynamic>();\r\n\r\n    if (data == null || (data.toAddresses == null && data.fromAddress == null && data.ccAddresses == null && data.bccAddresses == null)) {\r\n        return req.CreateResponse(HttpStatusCode.BadRequest, new {\r\n            error = \"Please pass fromAddress, toAddresses, ccAddresses, or bccAddresses in the input object\"\r\n        });\r\n    }\r\n\r\n    if (data.toAddresses != null) {\r\n        result.AddRange(ParseAddresses(data.toAddresses.ToString(), \"TO\"));\r\n    }\r\n\r\n    if (data.ccAddresses != null) {\r\n        result.AddRange(ParseAddresses(data.ccAddresses.ToString(), \"CC\"));\r\n    }\r\n\r\n    if (data.bccAddresses != null) {\r\n        result.AddRange(ParseAddresses(data.bccAddresses.ToString(), \"BCC\"));\r\n    }\r\n\r\n    if (data.fromAddress != null) {\r\n        result.AddRange(ParseAddresses(data.fromAddress.ToString(), \"FROM\"));\r\n    }\r\n\r\n\r\n    return req.CreateResponse(HttpStatusCode.OK, new {\r\n        addresses = result\r\n    });\r\n}\r\n\r\nprivate static dynamic CreateAddress(string address, string addressType)\r\n{\r\n    dynamic addressInstance = new System.Dynamic.ExpandoObject();\r\n    addressInstance.address = address;\r\n    addressInstance.addressType = addressType;\r\n\r\n    return addressInstance;\r\n}\r\n\r\nprivate static List<dynamic> ParseAddresses(string input, string addressType)\r\n{\r\n    List<dynamic> result = new List<dynamic>();\r\n\r\n	// RegEx defined at https://msdn.microsoft.com/en-us/library/01escwtf.aspx\r\n    foreach (Match match in Regex.Matches(input.ToLower(), @\"(?(\"\")(\"\".+?(?<!\\\\)\"\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))\" +\r\n                                                @\"(?(\\[)(\\[(\\d{1,3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9][\\-a-z0-9]{0,22}[a-z0-9]))\"))\r\n    {\r\n        result.Add(CreateAddress(match.Value, addressType));\r\n    }\r\n\r\n    return result;\r\n}\r\n"
+
+                  }
+				}
+			},
+			{
+				"apiVersion": "2016-08-01",
+
+                "name": "HTMLCleanerWebhook",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						  "methods": [
+							"post"
+						  ],
+
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "run.csx": "#r \"Newtonsoft.Json\"\r\n\r\n#load \"..\\shared\\StringExtensions.csx\"\r\n#load \"..\\shared\\HtmlCleaner.csx\"\r\n\r\nusing System;\r\nusing System.Net;\r\nusing Newtonsoft.Json;\r\n\r\npublic static async Task<object> Run(HttpRequestMessage req, TraceWriter log)\r\n{\r\n    log.Info($\"Webhook was triggered!\");\r\n\r\n    string jsonContent = await req.Content.ReadAsStringAsync();\r\n    dynamic data = JsonConvert.DeserializeObject(jsonContent);\r\n\r\n    if (data.html == null) {\r\n        return req.CreateResponse(HttpStatusCode.BadRequest, new {\r\n            error = \"Please pass 'html' property in the input object\"\r\n        });\r\n    }\r\n\r\n    var result = new HtmlCleaner().Clean(data.html.ToString());\r\n\r\n    String scrubbed = result.Scrubbed;\r\n\r\n    var scrubbedAndTrimmed = StringExtensions.LimitByBytes(scrubbed, 10000);\r\n\r\n    return req.CreateResponse(HttpStatusCode.OK, new {\r\n        Scrubbed = scrubbedAndTrimmed,\r\n        ScrubbedLength = scrubbedAndTrimmed.Length,\r\n        NoTags = result.NoTags,\r\n        NoTagsLength = result.NoTags.Length,\r\n        TopImage = result.Image\r\n    });\r\n}\r\n",
+					"project.json":"{\r\n  \"frameworks\": {\r\n    \"net46\": {\r\n      \"dependencies\": {\r\n        \"NSoup\": \"0.8.0\"\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+					"sample.dat":"{\r\n    \"first\": \"Azure\",\r\n    \"last\": \"Functions\"\r\n}\r\n"
+
+                  }
+				}
+			},
+			{
+				"apiVersion": "2016-08-01",
+
+                "name": "MainImageExtractor",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						  "methods": [
+							"post"
+						  ],
+
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "run.csx": "#r \"Newtonsoft.Json\"\r\n\r\n#load \"ImageResult.csx\"\r\n\r\nusing System;\r\nusing System.Net;\r\nusing Newtonsoft.Json;\r\nusing NSoup;\r\nusing NSoup.Nodes;\r\n\r\npublic static async Task<object> Run(HttpRequestMessage req, TraceWriter log)\r\n{\r\n    log.Info($\"Webhook was triggered!\");\r\n\r\n    string jsonContent = await req.Content.ReadAsStringAsync();\r\n    dynamic data = JsonConvert.DeserializeObject(jsonContent);\r\n\r\n    if (data.html == null) {\r\n        return req.CreateResponse(HttpStatusCode.BadRequest, new {\r\n            error = \"Please pass html property in the input object\"\r\n        });\r\n    }\r\n\r\n    var html = data.html.ToString();\r\n    log.Verbose($\"Input data: {html}\");\r\n\r\n    var doc = NSoupClient.Parse(html);\r\n\r\n    var image = doc.Select(\"[property=og:image]\").Attr(\"content\");\r\n\r\n    if (String.IsNullOrEmpty(image))\r\n    {\r\n        image = doc.Select(\"[name=twitter:image]\").Attr(\"content\");\r\n    }\r\n    else\r\n    {\r\n        log.Verbose($\"Found image {image} in OpenGraph annotation\");\r\n    }\r\n\r\n    if (String.IsNullOrEmpty(image))\r\n    {\r\n        log.Verbose($\"No image found\");\r\n        image = null;\r\n    }\r\n    else\r\n    {\r\n        log.Verbose($\"Returning image {image}\");\r\n    }\r\n\r\n    var result = new ImageResult() { ImageUrl = image };\r\n\r\n    return req.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(result));\r\n}\r\n",
+					"project.json":"{\r\n  \"frameworks\": {\r\n    \"net46\": {\r\n      \"dependencies\": {\r\n        \"NSoup\": \"0.8.0\"\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+					"ImageResult.csx":"public class ImageResult\r\n{\r\n	public String ImageUrl { get; internal set; }\r\n}\r\n"
+
+                  }
+				}
+			},
+			{
+				"apiVersion": "2016-08-01",
+
+                "name": "TimeUtilsWebhook",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "index.js": "{\r\n    \"inputs\": {\r\n        \"body\": {\r\n            \"date\": \"@utcNow()\"\r\n        },\r\n        \"function\": {\r\n            \"id\": \"/subscriptions/6efc9ada-f2b2-472d-9d8e-fb0ab1e29d0c/resourceGroups/AmnestyRG/providers/Microsoft.Web/sites/function06af1xdwag/functions/TimeUtilsWebhook\"\r\n        }\r\n    }\r\n}"
+
+                  }
+				}
+			},
+			{
+				"apiVersion": "2016-08-01",
+
+                "name": "TriggerHistory",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						  
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "run.csx": "#r \"Newtonsoft.Json\"\r\n#r \"System.Data\"\r\n\r\nusing System;\r\nusing System.Net;\r\nusing System.Net.Http.Headers;\r\nusing System.Net.Http;\r\nusing Newtonsoft.Json;\r\nusing System.Threading;\r\n\r\npublic static async Task<object> Run(HttpRequestMessage req, TraceWriter log)\r\n{\r\n        using (var client = new HttpClient())\r\n        {\r\n            //Request headers\r\n            string apiKey = System.Configuration.ConfigurationManager.ConnectionStrings[\"apiKey\"].ConnectionString;\r\n            string url = \"https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=microsoft\";\r\n            client.DefaultRequestHeaders.Add(\"Ocp-Apim-Subscription-Key\", apiKey);\r\n            client.BaseAddress = new Uri(url);\r\n\r\n            HttpResponseMessage response = await client.GetAsync(url);\r\n\r\n            if (response.IsSuccessStatusCode)\r\n            {\r\n                log.Info(\"true\");\r\n                return req.CreateResponse(\"true\");\r\n            }\r\n            else\r\n            {\r\n                log.Info(\"false\");\r\n                Thread.Sleep(30000);\r\n                return req.CreateResponse(\"false\");\r\n            }\r\n        }\r\n}\r\n"
+
+                  }
+				}
+			},
+			{
+				"apiVersion": "2016-08-01",
+
+                "name": "TriggerHistorySentiment",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						  
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "run.csx": "#r \"Newtonsoft.Json\"\r\n\r\nusing System;\r\nusing System.Net;\r\nusing System.Net.Http.Headers;\r\nusing System.Net.Http;\r\nusing Newtonsoft.Json;\r\nusing System.Threading;\r\nusing System.Collections.Generic;\r\nusing System.Text;\r\n\r\n\r\npublic static async Task<object> Run(HttpRequestMessage req, TraceWriter log)\r\n{\r\n            var client = new HttpClient();\r\n\r\n            Document response = new Document()\r\n            {\r\n                Text = \"test\",\r\n                Language = \"en\",\r\n                Id = \"1\"\r\n            };\r\n\r\n            string subscriptionKey = System.Configuration.ConfigurationManager.ConnectionStrings[\"subscriptionKey\"].ConnectionString;\r\n            client.DefaultRequestHeaders.Add(\"Ocp-Apim-Subscription-Key\", subscriptionKey);\r\n\r\n            var uri = \"https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment\";\r\n\r\n            //Request body\r\n            Sentiment sentiment = new Sentiment();\r\n            sentiment.documents = new List<Document>();\r\n            sentiment.documents.Add(response);\r\n\r\n            string serializedSentiment = JsonConvert.SerializeObject(sentiment);\r\n            StringContent content = new StringContent(serializedSentiment, Encoding.UTF8, \"application/json\");\r\n\r\n            var sentimentResponse = await client.PostAsync(uri, content);\r\n            \r\n            if (sentimentResponse.IsSuccessStatusCode)\r\n            {\r\n                log.Info(\"true\");\r\n                return req.CreateResponse(\"true\");\r\n            }\r\n            else\r\n            {\r\n                log.Info(\"false\");\r\n                Thread.Sleep(30000);\r\n                return req.CreateResponse(\"false\");\r\n            }\r\n\r\n}\r\n\r\npublic class Document\r\n{\r\n    public string Language { get; set; }\r\n    public string Id { get; set; }\r\n    public string Text { get; set; }\r\n}\r\n\r\npublic class Sentiment\r\n{\r\n    [JsonProperty(PropertyName = \"documents\")]\r\n    public List<Document> documents { get; set; }\r\n}\r\n"
+
+                  }
+				}
+			},
+			{
+				"apiVersion": "2016-08-01",
+
+                "name": "UrlCleaner",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						  "methods": [
+							"post"
+						  ],
+
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "run.csx": "#r \"Newtonsoft.Json\"\r\n\r\nusing System;\r\nusing System.Net;\r\nusing System.Text.RegularExpressions;\r\nusing Newtonsoft.Json;\r\n\r\npublic static async Task<object> Run(HttpRequestMessage req, TraceWriter log)\r\n{\r\n\r\n    log.Info($\"Webhook was triggered!\");\r\n\r\n    string jsonContent = await req.Content.ReadAsStringAsync();\r\n    dynamic data = JsonConvert.DeserializeObject(jsonContent);\r\n\r\n    var unescapedUri = Uri.UnescapeDataString((string)data.url);\r\n    Regex r = new Regex(\"\\\\?.*&h=(.*)&v=.*&r=(.*)&p=\");\r\n    Match m = r.Match(unescapedUri);\r\n    \r\n    UriId returnObject = new UriId\r\n    {\r\n        newUri = (string)data.url,\r\n        triggerId = DateTime.UtcNow.Ticks.ToString()\r\n    };\r\n\r\n\r\n    return req.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(returnObject));\r\n}\r\n\r\n    public class UriId\r\n    {\r\n        public string newUri { get; set; }\r\n        public string triggerId { get; set; }\r\n    }\r\n"
+
+                  }
+				}
+			},
+			{
+				"apiVersion": "2016-08-01",
+
+                "name": "UrlDomainWebhook",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						  "methods": [
+							"post"
+						  ],
+
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "run.csx": "#r \"Newtonsoft.Json\"\r\n\r\nusing System;\r\nusing System.Net;\r\nusing Newtonsoft.Json;\r\n\r\npublic static async Task<object> Run(HttpRequestMessage req, TraceWriter log)\r\n{\r\n    log.Info($\"Webhook was triggered!\");\r\n\r\n    string jsonContent = await req.Content.ReadAsStringAsync();\r\n    dynamic data = JsonConvert.DeserializeObject(jsonContent);\r\n\r\n    if (data.url == null) {\r\n        return req.CreateResponse(HttpStatusCode.BadRequest, new {\r\n            error = \"Please add a 'url' property with a valid URI\"\r\n        });\r\n    }\r\n\r\n    var myUri = new Uri(data.url.ToString());\r\n\r\n    return req.CreateResponse(HttpStatusCode.OK, new {\r\n        host = myUri.Host\r\n    });\r\n}\r\n",
+					"sample.dat":"{\r\n    \"name\": \"Azure\"\r\n}"
+
+                  }
+				}
+			},
+			{
+				"apiVersion": "2016-08-01",
+
+                "name": "UserDefinedEntities",
+
+                "type": "functions",
+
+                "dependsOn": [
+
+                    "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+
+                ],
+
+                "properties": {
+
+                    "config": {
+
+                    "bindings": [
+
+                        {
+
+                        "webHookType": "genericJson",
+						  "methods": [
+							"post"
+						  ],
+
+                        "name": "req",
+
+                        "type": "httpTrigger",
+
+                        "direction": "in"
+
+                        },
+
+                        {
+
+                        "name": "res",
+
+                        "type": "http",
+
+                        "direction": "out"
+
+                        }
+
+                    ]
+
+                  },
+
+                  "files": {
+
+                    "run.csx": "#r \"Newtonsoft.Json\"\r\n\r\n#load \"EntityResult.csx\"\r\n#load \"EntityDefinition.csx\"\r\n#load \"EntityDefinitionReader.csx\"\r\n\r\nusing System;\r\nusing System.Configuration;\r\nusing System.Net;\r\nusing System.Text.RegularExpressions;\r\nusing Newtonsoft.Json;\r\n\r\n/*\r\nConfiguration:\r\nNOTE: Regular expression parser is configured to be case-insensitive\r\n* Add a new Connection String to the web app called \"connectionString\".  This should point to the bingnews SQL database.\r\n* Add a new row to the \"userdefinedentitydefinitions\" table for each regex you want to search with\r\n** \"regex\":\"Google\", \"entityType\":\"Company\", \"entityValue\": \"Google, Inc.\"\r\n** \"regex\":\"Microsoft\", \"entityType\":\"Company\", \"entityValue\": \"Microsoft, Inc.\"\r\n** etc\r\n\r\nInput:\r\n{\r\n    text: \"My Document Here\"\r\n}\r\n\r\nOutput:\r\n{\r\n    \"entities\":[\r\n        {\"value\":\"Google, Inc\",\"type\":\"Company\",\"position\":0,\"lengthInText\":6}\r\n        , etc\r\n    ]\r\n}\r\n*/\r\n\r\npublic static async Task<object> Run(HttpRequestMessage req, TraceWriter log)\r\n{\r\n    log.Info($\"Webhook was triggered!\");\r\n\r\n    string jsonContent = await req.Content.ReadAsStringAsync();\r\n    dynamic data = JsonConvert.DeserializeObject(jsonContent);\r\n\r\n    string connectionString;\r\n\r\n    try\r\n    {\r\n        connectionString = ConfigurationManager.ConnectionStrings[\"ConnectionString\"].ToString();\r\n    }\r\n    catch (Exception e)\r\n    {\r\n        return req.CreateResponse(HttpStatusCode.BadRequest, new {\r\n            error = \"Error retrieving appsetting 'connectionString'.  Please ensure that the setting is defined. \" + e.ToString()});\r\n    }\r\n\r\n    if (data.text == null) {\r\n        return req.CreateResponse(HttpStatusCode.BadRequest, new {\r\n            error = \"Please pass text property in the input object\"\r\n        });\r\n    }\r\n\r\n    var resultList = new LinkedList<EntityResult>();\r\n\r\n    var textLength = (double) data.text.ToString().Length;\r\n\r\n	var entityDefs = new EntityDefinitionReader(connectionString).LoadEntityDefinitions();\r\n\r\n    foreach (EntityDefinition byoEntity in entityDefs)\r\n    {\r\n        var regex = new Regex(byoEntity.Regex, RegexOptions.IgnoreCase);\r\n\r\n        foreach( Match match in regex.Matches(data.text.ToString()))\r\n        {\r\n            var entity = new EntityResult() {\r\n                value = byoEntity.EntityValue,\r\n                type = byoEntity.EntityType,\r\n                position = match.Index,\r\n                positionDocumentPercentage = Math.Max((double) match.Index / textLength, 0.000001),\r\n                lengthInText = match.Value.Length\r\n            };\r\n\r\n            resultList.AddLast(entity);\r\n\r\n            log.Verbose($\"Found {match.Value} at position {match.Index}\");\r\n        }\r\n    }\r\n\r\n    return req.CreateResponse(HttpStatusCode.OK, new {\r\n        entities = resultList\r\n    });\r\n}\r\n",
+					"project.json":"{\r\n  \"frameworks\": {\r\n    \"net46\":{\r\n      \"dependencies\": {\r\n        \"System.Data.SqlClient\": \"4.3.0\"\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+					"EntityResult.csx":"public class EntityResult\r\n{\r\n	public String value { get; internal set; }\r\n\r\n	public String type { get; internal set; }\r\n\r\n	public int position { get; internal set; }\r\n	\r\n	public double positionDocumentPercentage { get; internal set; }\r\n\r\n	public int lengthInText { get; internal set; }\r\n}\r\n",
+					"EntityDefinitionReader":"#load \"EntityDefinition.csx\"\r\n\r\nusing System.Collections.Generic;\r\nusing System.Data.SqlClient;\r\n\r\npublic class EntityDefinitionReader\r\n{\r\n	private readonly string connectionString;\r\n\r\n	public EntityDefinitionReader(string connectionString)\r\n	{\r\n		this.connectionString = connectionString;\r\n	}\r\n\r\n	public IEnumerable<EntityDefinition> LoadEntityDefinitions()\r\n	{\r\n		using (SqlConnection connection = new SqlConnection(connectionString))\r\n		{\r\n			connection.Open();\r\n\r\n            var command = new SqlCommand(\"SELECT regex, entityType, entityValue FROM bpst_news.userdefinedentitydefinitions\", connection);\r\n\r\n            SqlDataReader reader = command.ExecuteReader();\r\n            var returnObject = new LinkedList<EntityDefinition>();\r\n\r\n            if (reader.HasRows)\r\n            {\r\n                while (reader.Read())\r\n				{\r\n					returnObject.AddLast(new EntityDefinition()\r\n					{\r\n						Regex = reader[\"regex\"].ToString(),\r\n						EntityType = reader[\"entityType\"].ToString(),\r\n						EntityValue = reader[\"entityValue\"].ToString()\r\n					});\r\n                }\r\n            }\r\n\r\n            return returnObject;\r\n		}\r\n	}\r\n}\r\n",
+					"EntityDefinition":"public class EntityDefinition\r\n{\r\n	public String Regex { get; internal set; }\r\n\r\n	public String EntityType { get; internal set; }\r\n\r\n	public String EntityValue { get; internal set; }\r\n}\r\n"
+
+                  }
+				}
+			}
+			
+			]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/38efeaef-028f-479e-9a6c-87a00ab14a98/resourceGroups/test234/providers/Microsoft.Web/sites/test1123412/config/web'.",
+            "type": "Microsoft.Web/sites/config",
+            "name": "[concat(parameters('sites_test1123412_name'), '/', parameters('config_web_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                //"linuxFxVersion": "",
+                "windowsFxVersion": null,
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": null,
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$test1123412",
+                "publishingPassword": null,
+                "appSettings": null,
+                "azureStorageAccounts": {},
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": "LeastRequests",
+                "routingRules": [],	
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "clientSecretCertificateThumbprint": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": {
+                    "allowedOrigins": [
+                        "https://functions.azure.com",
+                        "https://functions-staging.azure.com",
+                        "https://functions-next.azure.com"
+                    ],
+                    "supportCredentials": false
+                },
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": null,
+                "xManagedServiceIdentityId": null,
+                "ipSecurityRestrictions": null,
+                "scmIpSecurityRestrictions": null,
+                "scmIpSecurityRestrictionsUseMain": null,
+                "http20Enabled": false,
+                "minTlsVersion": "1.2",
+                "ftpsState": "AllAllowed",
+                "reservedInstanceCount": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+            ]
+        },
+       
+		
+		{
+            "comments": "Generalized from resource: '/subscriptions/38efeaef-028f-479e-9a6c-87a00ab14a98/resourceGroups/test234/providers/Microsoft.Web/sites/test1123412/hostNameBindings/test1123412.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "name": "[concat(parameters('sites_test1123412_name'), '/', parameters('hostNameBindings_test1123412.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "siteName": "test1123412",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_test1123412_name'))]"
+            ]
+        }
+    ]
+}

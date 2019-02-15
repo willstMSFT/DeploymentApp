@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sentiment Data Pipeline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="colorlib.com">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="~/assets/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="~/assets/vendor/date-picker/css/datepicker.min.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .bordercss {
+            /*border-top: #ffffff;*/
+            /*border-right: #ffffff;*/
+            /*border-bottom: grey;*/
+            /*border-left: #ffffff;*/
+            /*border-bottom-left-radius: 0px;*/
+            background: #ffffff;
+            margin-bottom: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" style="background: white;border-radius: 5px;padding-top:20px;padding-left:30px;padding-right:30px;padding-bottom:30px;border-color: 7px solid #88893;width: 900px;height: 700px;">
+        <form action="" id="wizard">
+            <!-- SECTION 1 -->
+            <h2 style="color: #00A4EF;font-weight: bold;text-align: center">Sentiment Data Pipeline</h2><br />
+            <h5 style="color: #00A4EF;font-weight: bold;text-align: center;font-size: 18px;">Oragnization Settings</h5>
+            <section>
+
+                @model List<SetupDataApp.Models.MySettings>
+                    @foreach (var settings in Model)
+                    {
+                <div class="row">
+                        <div class="col-lg-6 col-sm-6">
+                            <p>Organization Name</p>
+                            <input type="text" name="" class="form-control bordercss" value="@settings.Organization_Name" readonly="">
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <p>Area of Concern</p>
+                            <input type="text" name="" class="form-control bordercss" value="@settings.AreaOfConcern" readonly="">
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <p>Brand Image URL</p>
+                            <input type="text" name="" class="form-control bordercss" value="@settings.Brand_image_URL" readonly="">
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <p>Keywords</p>
+                            <input type="text" name="" class="form-control bordercss" value="@settings.Keywords" readonly="">
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <p>Synonyms</p>
+                            <input type="text" name="" class="form-control bordercss" value="@settings.Synonyms" readonly="">
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <p>Language</p>
+                            <input type="text" name="" class="form-control bordercss" value="@settings.MarketCode" readonly="">
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <p>Region</p>
+                            <input type="text" name="" class="form-control bordercss" value="@settings.Region" readonly="">
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-6">
+                        <p style="margin-left:5px;font-size: 18px;font-weight: bold;">Sentiment Threshold</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <p>Lower Control Unit</p>
+                        <input type="text" name="" class="form-control bordercss" value="@settings.LCL" readonly="">
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <p>Upper Control Unit</p>
+                        <input type="text" name="" class="form-control bordercss" value="@settings.UCL" readonly="">
+                    </div>
+                </div>
+                    }
+                <br><br>
+                <button type="button" class="btn btn-primary" style="float: left;" onclick="window.location.href= '/Home/HomePage';">Back</button>
+                <button type="button" class="btn btn-primary" style="float: right;" onclick="window.location.href= '/Home/SettingsEditPage';">Edit</button>
+
+
+            </section>
+
+
+        </form>
+    </div>
+
+    <script src="~/assets/js/jquery-3.3.1.min.js"></script>
+
+    <!-- JQUERY STEP -->
+    <script src="~/assets/js/jquery.steps.js"></script>
+
+    <!-- DATE-PICKER -->
+    <script src="~/assets/vendor/date-picker/js/datepicker.js"></script>
+    <script src="~/assets/vendor/date-picker/js/datepicker.en.js"></script>
+
+    <script src="~/assets/js/main.js"></script>
+
+
+</body>
+</html>
