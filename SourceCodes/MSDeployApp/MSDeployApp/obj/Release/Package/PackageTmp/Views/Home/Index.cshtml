@@ -129,31 +129,31 @@
                                         </div>
                                     </div>
                                     <div class="row">
-            <div class="col-sm-6">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="material-icons dp48">dns</i>
-                    </span>
-                    <div class="form-group label-floating">
-                        <label class="control-label">SQL Server Name</label>
-                        <input type="text" name="dbsrc" id="dbsrc" class="form-control" required="">
-                    </div>
-                </div>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons dp48">dns</i>
+                                                </span>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">SQL Server Name</label>
+                                                    <input type="text" name="dbsrc" id="dbsrc" class="form-control" required="">
+                                                </div>
+                                            </div>
 
-            </div>
-            <div class="col-sm-6" style="display: none;">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="material-icons dp48">dns</i>
-                    </span>
-                    <div class="form-group label-floating">
-                        <label class="control-label">SQL Server Name</label>
-                        <input type="text" name="" class="form-control" required="">
-                    </div>
-                </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">vpn_key</i>
+                                                </span>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Subscription ID</label>
+                                                    <input type="password" name="subsid" id="subsid" class="form-control" required="">
+                                                </div>
+                                            </div>
 
-            </div>
-        </div>
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -241,22 +241,21 @@
 <!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 <script src="~/assets/js/jquery.validate.min.js"></script>
 
-<script> 
+<script>
 
     $(document).ready(function () {
         $('#details_tab').attr('disabled', true);
-        $('#azuid,#pbid,#azpwd,#pbpwd,#dbsrc,#dbuid,#dbpwd').on('keyup', function ()
-        {
+        $('#azuid,#pbid,#azpwd,#pbpwd,#dbsrc,#subsid,#dbuid,#dbpwd').on('keyup', function () {
             var azuid = $("#azuid").val();
             var pbid = $("#pbid").val();
             var azpwd = $("#azpwd").val();
             var pbpwd = $("#pbpwd").val();
             var dbsrc = $("#dbsrc").val();
+            var subsid = $("#subsid").val();
             var dbuid = $("#dbuid").val();
             var dbpwd = $("#dbpwd").val();
 
-            if (azuid != "" && pbid != "" && azpwd != "" && pbpwd != "" && dbsrc != "" && dbuid != "" && dbpwd != "")
-            {
+            if (azuid != "" && pbid != "" && azpwd != "" && pbpwd != "" && dbsrc != "" && subsid !="" && dbuid != "" && dbpwd != "") {
                 $('#details_tab').attr('disabled', false);
             } else {
                 $('#details_tab').attr('disabled', true);
@@ -264,21 +263,15 @@
         });
     });
 
-    $('#details_tab').on("click", function ()
-    {
-        
-            document.getElementById("details_tab").style.display = "none";
-            document.getElementById("details_tab1").style.display = "block";
-        
-    }
-    ); 
+    $('#details_tab').on("click", function () {
 
-    
+        document.getElementById("details_tab").style.display = "none";
+        document.getElementById("details_tab1").style.display = "block";
+
+    }
+    );
+
+
 </script>
 
 </html>
-
-
-
-
-

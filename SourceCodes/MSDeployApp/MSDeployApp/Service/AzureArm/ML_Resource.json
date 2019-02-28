@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "connections_azureml_name": {
+      "defaultValue": "azureml",
+      "type": "string"
+    },
+    "connections_sqlNotifierConnection_name": {
+      "defaultValue": "sqlNotifierConnection",
+      "type": "string"
+    },
+    "sqlServer": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "sqlDatabase": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "sqlUser": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "sqlPassword": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "SubscriptionId": {
+      "defaultValue": "",
+      "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "comments": "Generalized from resource: '/subscriptions/6efc9ada-f2b2-472d-9d8e-fb0ab1e29d0c/resourceGroups/AmnestyResourceGroup/providers/Microsoft.Web/connections/azureml'.",
+      "type": "Microsoft.Web/connections",
+      "name": "azureml",
+      "apiVersion": "2016-06-01",
+      "location": "westus",
+      "scale": null,
+      "properties": {
+        "displayName": "[parameters('connections_azureml_name')]",
+        "customParameterValues": {},
+        "api": {
+          "id": "[concat('/subscriptions/',parameters('SubscriptionId'),'/providers/Microsoft.Web/locations/westus/managedApis/', parameters('connections_azureml_name'))]"
+        }
+      },
+      "dependsOn": []
+    },
+    {
+      "comments": "Generalized from resource: '/subscriptions/6efc9ada-f2b2-472d-9d8e-fb0ab1e29d0c/resourceGroups/AmnestyResourceGroup/providers/Microsoft.Web/connections/sqlNotifierConnection'.",
+      "type": "Microsoft.Web/connections",
+      "name": "sqlNotifierConnection_name",
+      "apiVersion": "2016-06-01",
+      "location": "westus",
+      "scale": null,
+      "properties": {
+        "displayName": "[parameters('connections_sqlNotifierConnection_name')]",
+        "parameterValues": {
+          "server": "[parameters('sqlServer')]",
+          "database": "[parameters('sqlDatabase')]",
+          "authType": "basic",
+          "username": "[parameters('sqlUser')]",
+          "password": "[parameters('sqlPassword')]"
+        },
+        "customParameterValues": {},
+        "api": {
+          "id": "[concat('/subscriptions/',parameters('SubscriptionId'),'/providers/Microsoft.Web/locations/westus/managedApis/sql')]"
+        }
+      },
+      "dependsOn": []
+    }
+  ]
+}

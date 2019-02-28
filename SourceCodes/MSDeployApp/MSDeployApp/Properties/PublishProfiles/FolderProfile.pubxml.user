@@ -6,143 +6,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>G:\PublishedData</_PublishTargetUrl>
+    <_PublishTargetUrl>G:\Published Data</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
-    <File Include="App_Data/Amnesty_BingNews1.sql">
-      <publishTime>02/06/2019 18:23:57</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews10-0.sql">
-      <publishTime>02/11/2019 13:38:52</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews10-1.sql">
-      <publishTime>02/06/2019 18:15:23</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews10-2.sql">
-      <publishTime>02/06/2019 17:53:54</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews10-3.sql">
-      <publishTime>02/07/2019 11:59:52</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews10-4.sql">
-      <publishTime>02/06/2019 19:28:33</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews10-5.sql">
-      <publishTime>02/06/2019 19:28:59</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews10-6.sql">
-      <publishTime>02/06/2019 19:29:09</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews10-7.sql">
-      <publishTime>02/06/2019 18:17:59</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews10.sql">
-      <publishTime>02/06/2019 17:49:26</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews11-0.sql">
-      <publishTime>02/07/2019 13:54:48</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews11-1.sql">
-      <publishTime>02/11/2019 15:06:57</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews11.sql">
-      <publishTime>02/06/2019 18:21:57</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews2.sql">
-      <publishTime>02/05/2019 13:31:32</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews3.sql">
-      <publishTime>02/05/2019 13:31:32</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews4.sql">
-      <publishTime>02/07/2019 13:56:54</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews5.sql">
-      <publishTime>02/05/2019 13:31:32</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews6.sql">
-      <publishTime>02/05/2019 13:31:32</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews7.sql">
-      <publishTime>02/05/2019 13:31:32</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews8-1.sql">
-      <publishTime>02/06/2019 16:48:37</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews8.sql">
-      <publishTime>02/06/2019 16:45:20</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-1.sql">
-      <publishTime>02/06/2019 16:53:13</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-10.sql">
-      <publishTime>02/06/2019 17:31:47</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-11.sql">
-      <publishTime>02/06/2019 17:34:45</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-12.sql">
-      <publishTime>02/06/2019 17:36:59</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-13.sql">
-      <publishTime>02/06/2019 17:38:52</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-14.sql">
-      <publishTime>02/06/2019 17:39:38</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-2.sql">
-      <publishTime>02/06/2019 16:59:06</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-3.sql">
-      <publishTime>02/06/2019 17:01:00</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-4.sql">
-      <publishTime>02/07/2019 12:02:42</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-5.sql">
-      <publishTime>02/06/2019 17:14:09</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-6.sql">
-      <publishTime>02/06/2019 17:19:39</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-7.sql">
-      <publishTime>02/06/2019 17:22:01</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-8.sql">
-      <publishTime>02/06/2019 17:24:17</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9-9.sql">
-      <publishTime>02/06/2019 17:27:58</publishTime>
-    </File>
-    <File Include="App_Data/Amnesty_BingNews9.sql">
-      <publishTime>02/06/2019 16:51:21</publishTime>
-    </File>
-    <File Include="App_Data/ARMTemplate.json">
-      <publishTime>02/14/2019 19:17:03</publishTime>
-    </File>
-    <File Include="App_Data/DependARMTemplate.json">
-      <publishTime>01/30/2019 14:14:29</publishTime>
-    </File>
-    <File Include="App_Data/functionqfz47ane82.zip">
-      <publishTime>02/14/2019 15:28:46</publishTime>
-    </File>
-    <File Include="App_Data/Funtnapp.json">
-      <publishTime>02/14/2019 16:03:15</publishTime>
-    </File>
-    <File Include="App_Data/LogicApps_ML.json">
-      <publishTime>02/08/2019 11:46:19</publishTime>
-    </File>
-    <File Include="App_Data/ML_Resource.json">
-      <publishTime>02/14/2019 19:18:04</publishTime>
-    </File>
-    <File Include="App_Data/Sentiment Data Pipeline.pbix">
-      <publishTime>01/29/2019 17:01:16</publishTime>
-    </File>
-    <File Include="App_Data/ServerDB.json">
-      <publishTime>02/14/2019 19:17:27</publishTime>
-    </File>
     <File Include="App_Data/TestFile.txt">
-      <publishTime>02/14/2019 19:51:57</publishTime>
+      <publishTime>02/27/2019 11:25:24</publishTime>
     </File>
     <File Include="assets/.DS_Store">
       <publishTime>01/29/2019 17:09:14</publishTime>
@@ -157,7 +25,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/29/2019 17:09:14</publishTime>
     </File>
     <File Include="assets/css/material-bootstrap-wizard.css">
-      <publishTime>02/12/2019 13:31:19</publishTime>
+      <publishTime>02/22/2019 13:55:02</publishTime>
     </File>
     <File Include="assets/img/.DS_Store">
       <publishTime>01/29/2019 17:09:14</publishTime>
@@ -295,10 +163,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/29/2019 17:09:14</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>09/10/2013 16:29:20</publishTime>
+      <publishTime>10/09/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.pdb">
-      <publishTime>09/10/2013 16:29:20</publishTime>
+      <publishTime>10/09/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.TelemetryCorrelation.dll">
       <publishTime>06/28/2017 15:05:26</publishTime>
@@ -310,7 +178,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/14/2018 20:51:30</publishTime>
     </File>
     <File Include="bin/Microsoft.SqlServer.BatchParser.dll">
-      <publishTime>05/02/2018 09:09:56</publishTime>
+      <publishTime>02/05/2018 09:09:56</publishTime>
     </File>
     <File Include="bin/Microsoft.SqlServer.BatchParserClient.dll">
       <publishTime>08/14/2018 20:51:30</publishTime>
@@ -403,10 +271,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MSDeployApp.dll">
-      <publishTime>02/15/2019 13:16:40</publishTime>
+      <publishTime>02/27/2019 18:05:42</publishTime>
     </File>
     <File Include="bin/MSDeployApp.pdb">
-      <publishTime>02/15/2019 13:16:40</publishTime>
+      <publishTime>02/27/2019 18:05:42</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>02/18/2018 09:44:54</publishTime>
@@ -556,25 +424,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/25/2015 22:03:02</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>02/01/2018 12:20:56</publishTime>
+      <publishTime>01/02/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>02/01/2018 12:16:32</publishTime>
+      <publishTime>01/02/2018 12:16:32</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>02/11/2014 15:26:04</publishTime>
+      <publishTime>11/02/2014 15:26:04</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>02/01/2018 12:16:56</publishTime>
+      <publishTime>01/02/2018 12:16:56</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>02/01/2018 12:20:56</publishTime>
+      <publishTime>01/02/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>02/01/2018 12:20:56</publishTime>
+      <publishTime>01/02/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>02/01/2018 12:20:56</publishTime>
+      <publishTime>01/02/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -665,6 +533,156 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>01/29/2019 16:58:19</publishTime>
+    </File>
+    <File Include="Service/AzureArm/ARMTemplate.json">
+      <publishTime>02/27/2019 15:58:47</publishTime>
+    </File>
+    <File Include="Service/AzureArm/DependARMTemplate.json">
+      <publishTime>01/30/2019 14:14:29</publishTime>
+    </File>
+    <File Include="Service/AzureArm/functionqfz47ane82.zip">
+      <publishTime>02/14/2019 15:28:46</publishTime>
+    </File>
+    <File Include="Service/AzureArm/Funtnapp.json">
+      <publishTime>02/14/2019 16:03:15</publishTime>
+    </File>
+    <File Include="Service/AzureArm/LogicApps_ML.json">
+      <publishTime>02/26/2019 13:37:59</publishTime>
+    </File>
+    <File Include="Service/AzureArm/ML_Resource.json">
+      <publishTime>02/26/2019 11:29:57</publishTime>
+    </File>
+    <File Include="Service/AzureArm/ServerDB.json">
+      <publishTime>02/14/2019 19:17:27</publishTime>
+    </File>
+    <File Include="Service/Database/00_content_check.sql">
+      <publishTime>02/26/2019 18:18:23</publishTime>
+    </File>
+    <File Include="Service/Database/10_pre.sql">
+      <publishTime>02/26/2019 18:23:58</publishTime>
+    </File>
+    <File Include="Service/Database/20_tables.sql">
+      <publishTime>02/27/2019 12:53:42</publishTime>
+    </File>
+    <File Include="Service/Database/30_views.sql">
+      <publishTime>02/26/2019 16:25:10</publishTime>
+    </File>
+    <File Include="Service/Database/40_programmability.sql">
+      <publishTime>02/27/2019 12:53:50</publishTime>
+    </File>
+    <File Include="Service/Database/50_post.sql">
+      <publishTime>02/26/2019 18:24:14</publishTime>
+    </File>
+    <File Include="Service/Database/60_data.sql">
+      <publishTime>02/27/2019 12:58:08</publishTime>
+    </File>
+    <File Include="Service/Database/90_on-premise.sql">
+      <publishTime>02/26/2019 18:25:09</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews10-0.sql">
+      <publishTime>02/11/2019 13:38:52</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews10-1.sql">
+      <publishTime>02/18/2019 16:28:15</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews10-2.sql">
+      <publishTime>02/06/2019 17:53:54</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews10-3.sql">
+      <publishTime>02/07/2019 11:59:52</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews10-4.sql">
+      <publishTime>02/06/2019 19:28:33</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews10-5.sql">
+      <publishTime>02/06/2019 19:28:59</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews10-6.sql">
+      <publishTime>02/06/2019 19:29:09</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews10-7.sql">
+      <publishTime>02/06/2019 18:17:59</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews10.sql">
+      <publishTime>02/06/2019 17:49:26</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews11.sql">
+      <publishTime>02/26/2019 16:54:38</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews4.sql">
+      <publishTime>02/26/2019 15:47:58</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews5.sql">
+      <publishTime>02/05/2019 13:31:32</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews6.sql">
+      <publishTime>02/05/2019 13:31:32</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews7.sql">
+      <publishTime>02/05/2019 13:31:32</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews8-1.sql">
+      <publishTime>02/06/2019 16:48:37</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews8.sql">
+      <publishTime>02/06/2019 16:45:20</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-1.sql">
+      <publishTime>02/06/2019 16:53:13</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-10.sql">
+      <publishTime>02/06/2019 17:31:47</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-11.sql">
+      <publishTime>02/06/2019 17:34:45</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-12.sql">
+      <publishTime>02/06/2019 17:36:59</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-13.sql">
+      <publishTime>02/06/2019 17:38:52</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-14.sql">
+      <publishTime>02/06/2019 17:39:38</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-2.sql">
+      <publishTime>02/06/2019 16:59:06</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-3.sql">
+      <publishTime>02/06/2019 17:01:00</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-4.sql">
+      <publishTime>02/07/2019 12:02:42</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-5.sql">
+      <publishTime>02/06/2019 17:14:09</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-6.sql">
+      <publishTime>02/06/2019 17:19:39</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-7.sql">
+      <publishTime>02/06/2019 17:22:01</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-8.sql">
+      <publishTime>02/06/2019 17:24:17</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9-9.sql">
+      <publishTime>02/06/2019 17:27:58</publishTime>
+    </File>
+    <File Include="Service/Database/Data/BingNews9.sql">
+      <publishTime>02/06/2019 16:51:21</publishTime>
+    </File>
+    <File Include="Service/Database/Programmability.sql">
+      <publishTime>02/26/2019 16:25:10</publishTime>
+    </File>
+    <File Include="Service/Database/Tables.sql">
+      <publishTime>02/26/2019 16:25:10</publishTime>
+    </File>
+    <File Include="Service/Database/Views.sql">
+      <publishTime>02/26/2019 16:25:10</publishTime>
+    </File>
+    <File Include="Service/Power BI/Sentiment Data Pipeline.pbix">
+      <publishTime>01/29/2019 17:01:16</publishTime>
     </File>
     <File Include="vendor/bootstrap-social/bootstrap-social.css">
       <publishTime>01/31/2019 18:37:44</publishTime>
@@ -1063,10 +1081,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/31/2019 18:37:46</publishTime>
     </File>
     <File Include="Views/Home/ARMFn.cshtml">
-      <publishTime>02/15/2019 11:57:30</publishTime>
+      <publishTime>02/22/2019 13:57:33</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>02/15/2019 11:55:11</publishTime>
+      <publishTime>02/27/2019 11:25:01</publishTime>
     </File>
     <File Include="Views/Home/SqlDBFn.cshtml">
       <publishTime>01/29/2019 17:04:22</publishTime>
@@ -1084,7 +1102,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/29/2019 17:01:40</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/15/2019 13:16:40</publishTime>
+      <publishTime>02/27/2019 18:05:42</publishTime>
     </File>
   </ItemGroup>
 </Project>
