@@ -304,7 +304,7 @@
     <Content Include="Service\AzureArm\ARMTemplate.json" />
     <Content Include="Service\AzureArm\functionqfz47ane82.zip" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\MSDeployApp20190227032136 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\MSDeployApp20190305074201 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

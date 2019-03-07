@@ -47,25 +47,49 @@ namespace MSDeployApp.Controllers
                 Collection<PSObject> rst = PowerShellInstance1.Invoke();
                 PowerShellInstance1.Commands.Clear();
 
+                //FunctionApp Template JSON Logic App Dynamic Values
+                //Generating Unique File Name
+                var myUniqueFileName0 = $@"{System.DateTime.Now.Ticks}.json";
+                //Path of Temp File to be created
+                string tempfile0 = Server.MapPath(@"~\App_Data\" + myUniqueFileName0);
+                //Path of ARM Template
+                string jsonFile00 = Server.MapPath(@"~\Service\AzureArm\Funtnapp.json");
+                //Copying file
+                System.IO.File.Copy(jsonFile00, tempfile0);
+                //Changing the Params in TempFile0
+                string json00 = System.IO.File.ReadAllText(tempfile0);
+                var jObject00 = JObject.Parse(json00);
+                //Generating unique resource names
+                var fntnname = "fn" + $@"{System.DateTime.Now.Ticks}" + "nme";
+                var appsername = "srv" + $@"{System.DateTime.Now.Ticks}" + "nme";
+                var stracname = "str" + $@"{System.DateTime.Now.Ticks}" + "nme";
+                jObject00["parameters"]["sites_test1123412_name"]["defaultValue"] = fntnname;
+                jObject00["parameters"]["serverfarms_CentralUSPlan_name"]["defaultValue"] = appsername;
+                jObject00["parameters"]["storageAccounts_test1123412ad54_name"]["defaultValue"] = stracname;
+                string output00 = JsonConvert.SerializeObject(jObject00, Formatting.Indented);
+                System.IO.File.WriteAllText(tempfile0, output00);
+
 
                 //Deploying Azure Function App
-                string TempPath3 = Server.MapPath(@"~\Service\AzureArm\Funtnapp.json");
                 PowerShellInstance1.AddScript("$resourceGroupName = '" + rgname + "'");
-                PowerShellInstance1.AddScript("New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile " + TempPath3);
+                PowerShellInstance1.AddScript("New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile " + tempfile0);
                 Collection<PSObject> tfn = PowerShellInstance1.Invoke();
                 PowerShellInstance1.Commands.Clear();
+
+                //Deleting the Temp File1
+                System.IO.File.Delete(tempfile0);
 
                 var testpath = Server.MapPath(@"~\App_Data\TestFile.txt");
 
                 //Uploading Function App Zip Folder
                 string zippath = Server.MapPath(@"~\Service\AzureArm\functionqfz47ane82.zip");
                 PowerShellInstance1.AddScript("$resourceGroup = \"ARM-DeployRG\"");
-                PowerShellInstance1.AddScript("$functionAppName = \"test1123412te12121\"");
+                PowerShellInstance1.AddScript("$functionAppName = '"+fntnname+"'");
                 PowerShellInstance1.AddScript("$creds = Invoke-AzureRmResourceAction -ResourceGroupName $resourceGroup -ResourceType Microsoft.Web/sites/config `             -ResourceName $functionAppName/publishingcredentials -Action list -ApiVersion 2015-08-01 -Force");
                 PowerShellInstance1.AddScript("$username = $creds.Properties.PublishingUserName");
                 PowerShellInstance1.AddScript("$password = $creds.Properties.PublishingPassword");
                 PowerShellInstance1.AddScript("$filePath = '" + zippath + "'");
-                PowerShellInstance1.AddScript("$apiUrl = \"https://test1123412te12121.azurewebsites.net/\"");
+                PowerShellInstance1.AddScript("$apiUrl = \"https://"+fntnname+".azurewebsites.net/\"");
                 PowerShellInstance1.AddScript("$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes((\"{0}:{1}\" -f $username, $password)))");
                 PowerShellInstance1.AddScript("$userAgent = \"powershell/1.0\"");
                 PowerShellInstance1.AddScript("[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12");
@@ -91,6 +115,7 @@ namespace MSDeployApp.Controllers
                 jObject1["parameters"]["sqlPassword"]["defaultValue"] = dbpwd;
                 jObject1["parameters"]["sqlDatabase"]["defaultValue"] = dbname;
                 jObject1["parameters"]["SubscriptionId"]["defaultValue"] = subsid;
+                jObject1["parameters"]["sites_function06af1xdwag_name"]["defaultValue"] = fntnname;
                 string output1 = JsonConvert.SerializeObject(jObject1, Formatting.Indented);
                 System.IO.File.WriteAllText(tempfile1, output1);
                  
@@ -265,6 +290,7 @@ namespace MSDeployApp.Controllers
                 string json4 = System.IO.File.ReadAllText(tempfile4);
                 var jObject4 = JObject.Parse(json4);
                 jObject4["parameters"]["SubscriptionId"]["defaultValue"] = subsid;
+                jObject4["parameters"]["sites_functionqfz47ane82_name"]["defaultValue"] = fntnname;
                 string output4 = JsonConvert.SerializeObject(jObject4, Formatting.Indented);
                 System.IO.File.WriteAllText(tempfile4, output4);
 
@@ -273,7 +299,7 @@ namespace MSDeployApp.Controllers
                 PowerShellInstance1.AddScript("$resourceGroupName = '"+rgname+"'");
                 PowerShellInstance1.AddScript("New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile " +tempfile4);
                 Collection<PSObject> tfn2 = PowerShellInstance1.Invoke();
-                PowerShellInstance1.Commands.Clear();
+                 PowerShellInstance1.Commands.Clear();
 
                 //Deleting the Temp File4
                 System.IO.File.Delete(tempfile4);

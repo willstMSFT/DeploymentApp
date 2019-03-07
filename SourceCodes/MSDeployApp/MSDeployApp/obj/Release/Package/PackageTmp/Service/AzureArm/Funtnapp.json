@@ -3,11 +3,11 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "sites_test1123412_name": {
-            "defaultValue": "test1123412te12121",
+            "defaultValue": "",
             "type": "string"
         },
         "serverfarms_CentralUSPlan_name": {
-            "defaultValue": "CentralUSPlante1212",
+            "defaultValue": "",
             "type": "string"
         },
         "config_web_name": {
@@ -15,13 +15,13 @@
             "type": "string"
         },
         "storageAccounts_test1123412ad54_name": {
-            "defaultValue": "test1123412ad54te12121",
+            "defaultValue": "",
             "type": "string"
         },
-        "hostNameBindings_test1123412.azurewebsites.net_name": {
-            "defaultValue": "test1123412te12121.azurewebsites.net",
-            "type": "string"
-        }
+      "hostNameBindings_test1123412.azurewebsites.net_name": {
+        "defaultValue": "[concat(parameters('sites_test1123412_name'),'.azurewebsites.net')]",
+        "type": "string"
+      }
     },
     "variables": {},
     "resources": [
