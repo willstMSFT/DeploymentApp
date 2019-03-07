@@ -136,7 +136,8 @@
                                                 </span>
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">SQL Server Name</label>
-                                                    <input type="text" name="dbsrc" id="dbsrc" class="form-control" required="">
+                                <input type="text" style="text-transform:lowercase" name="dbsrc" id="dbsrc" class="form-control" required="">
+                                                    <p id="error" style="color:red; font-size:11px; display:none;">Only allows Lowercase letters and numbers</p>
                                                 </div>
                                             </div>
 
@@ -271,6 +272,20 @@
     }
     );
 
+    $('#dbsrc').keypress(function (e) {
+        var regex = new RegExp("^[a-zA-Z0-9]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str))
+        {
+            $('#error').hide();
+            
+        }
+
+        else {
+            $('#error').show();
+            
+        }
+    });
 
 </script>
 

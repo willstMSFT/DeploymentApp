@@ -31,6 +31,7 @@ namespace MSDeployApp.Controllers
                 Collection<PSObject> rs1 = PowerShellInstance1.Invoke();
                 PowerShellInstance1.Commands.Clear();
 
+                var servername = dbsrc + $@"{System.DateTime.Now.Ticks}";
                 string rgname = "ARM-DeployRG";
                 var dbname = "bingNews";
 
@@ -110,7 +111,7 @@ namespace MSDeployApp.Controllers
                 //Changing the Params in TempFile1
                 string json1 = System.IO.File.ReadAllText(tempfile1);
                 var jObject1 = JObject.Parse(json1);
-                jObject1["parameters"]["sqlServer"]["defaultValue"] = dbsrc;
+                jObject1["parameters"]["sqlServer"]["defaultValue"] = servername;
                 jObject1["parameters"]["sqlUser"]["defaultValue"] = dbuid;
                 jObject1["parameters"]["sqlPassword"]["defaultValue"] = dbpwd;
                 jObject1["parameters"]["sqlDatabase"]["defaultValue"] = dbname;
@@ -141,7 +142,7 @@ namespace MSDeployApp.Controllers
                 //Changing the Params in TempFile2
                 string json0 = System.IO.File.ReadAllText(tempfile2);
                 var jObject0 = JObject.Parse(json0);
-                jObject0["parameters"]["serverName"]["defaultValue"] = dbsrc;
+                jObject0["parameters"]["serverName"]["defaultValue"] = servername;
                 jObject0["parameters"]["serverAdminLogin"]["defaultValue"] = dbuid;
                 jObject0["parameters"]["serverAdminLoginPassword"]["defaultValue"] = dbpwd;
                 jObject0["parameters"]["databaseName"]["defaultValue"] = dbname;
@@ -159,7 +160,7 @@ namespace MSDeployApp.Controllers
 
 
                 //Executing SQL Script 1
-                string sqlConnectionString1 = "Server=tcp:" + dbsrc + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
+                string sqlConnectionString1 = "Server=tcp:" + servername + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
                 string sqlpath1 = Server.MapPath(@"~\Service\Database\00_content_check.sql");//.sql file path
                 FileInfo file1 = new FileInfo(sqlpath1);
                 string script1 = file1.OpenText().ReadToEnd();
@@ -170,7 +171,7 @@ namespace MSDeployApp.Controllers
                 server1.ConnectionContext.ExecuteNonQuery(script1);
 
                 //Executing SQL Script 2
-                string sqlConnectionString2 = "Server=tcp:" + dbsrc + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
+                string sqlConnectionString2 = "Server=tcp:" + servername + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
                 string sqlpath2 = Server.MapPath(@"~\Service\Database\10_pre.sql");
                 FileInfo file2 = new FileInfo(sqlpath2);
                 string script2 = file2.OpenText().ReadToEnd();
@@ -181,7 +182,7 @@ namespace MSDeployApp.Controllers
                 server2.ConnectionContext.ExecuteNonQuery(script2);
 
                 //Executing SQL Script 3
-                string sqlConnectionString3 = "Server=tcp:" + dbsrc + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
+                string sqlConnectionString3 = "Server=tcp:" + servername + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
                 string sqlpath3 = Server.MapPath(@"~\Service\Database\20_tables.sql");
                 FileInfo file3 = new FileInfo(sqlpath3);
                 string script3 = file3.OpenText().ReadToEnd();
@@ -192,7 +193,7 @@ namespace MSDeployApp.Controllers
                 server3.ConnectionContext.ExecuteNonQuery(script3);
 
                 //Executing SQL Script 4
-                string sqlConnectionString4 = "Server=tcp:" + dbsrc + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
+                string sqlConnectionString4 = "Server=tcp:" + servername + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
                 string sqlpath4 = Server.MapPath(@"~\Service\Database\30_views.sql");
                 FileInfo file4 = new FileInfo(sqlpath4);
                 string script4 = file4.OpenText().ReadToEnd();
@@ -203,7 +204,7 @@ namespace MSDeployApp.Controllers
                 server4.ConnectionContext.ExecuteNonQuery(script4);
 
                 //Executing SQL Script 5
-                string sqlConnectionString5 = "Server=tcp:" + dbsrc + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
+                string sqlConnectionString5 = "Server=tcp:" + servername + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
                 string sqlpath5 = Server.MapPath(@"~\Service\Database\40_programmability.sql");
                 FileInfo file5 = new FileInfo(sqlpath5);
                 string script5 = file5.OpenText().ReadToEnd();
@@ -214,7 +215,7 @@ namespace MSDeployApp.Controllers
                 server5.ConnectionContext.ExecuteNonQuery(script5);
 
                 //Executing SQL Script 6
-                string sqlConnectionString6 = "Server=tcp:" + dbsrc + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
+                string sqlConnectionString6 = "Server=tcp:" + servername + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
                 string sqlpath6 = Server.MapPath(@"~\Service\Database\50_post.sql");
                 FileInfo file6 = new FileInfo(sqlpath6);
                 string script6 = file6.OpenText().ReadToEnd();
@@ -225,7 +226,7 @@ namespace MSDeployApp.Controllers
                 server6.ConnectionContext.ExecuteNonQuery(script6);
 
                 //Executing SQL Script 7
-                string sqlConnectionString7 = "Server=tcp:" + dbsrc + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
+                string sqlConnectionString7 = "Server=tcp:" + servername + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
                 string sqlpath7 = Server.MapPath(@"~\Service\Database\60_data.sql");
                 FileInfo file7 = new FileInfo(sqlpath7);
                 string script7 = file7.OpenText().ReadToEnd();
@@ -236,7 +237,7 @@ namespace MSDeployApp.Controllers
                 server7.ConnectionContext.ExecuteNonQuery(script7);
 
                 //Executing SQL Script 8
-                string sqlConnectionString8 = "Server=tcp:" + dbsrc + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
+                string sqlConnectionString8 = "Server=tcp:" + servername + ".database.windows.net,1433;Initial Catalog=" + dbname + ";Persist Security Info=False;User ID=" + dbuid + ";Password=" + dbpwd + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3600";
                 string sqlpath8 = Server.MapPath(@"~\Service\Database\90_on-premise.sql");
                 FileInfo file8 = new FileInfo(sqlpath8);
                 string script8 = file8.OpenText().ReadToEnd();
@@ -259,7 +260,7 @@ namespace MSDeployApp.Controllers
                 //Changing the Params in TempFile2
                 string json2 = System.IO.File.ReadAllText(tempfile3);
                 var jObject2 = JObject.Parse(json2);
-                jObject2["parameters"]["sqlServer"]["defaultValue"] = dbsrc;
+                jObject2["parameters"]["sqlServer"]["defaultValue"] = servername;
                 jObject2["parameters"]["sqlUser"]["defaultValue"] = dbuid;
                 jObject2["parameters"]["sqlPassword"]["defaultValue"] = dbpwd;
                 jObject2["parameters"]["sqlDatabase"]["defaultValue"] = dbname;
