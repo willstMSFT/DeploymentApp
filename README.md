@@ -7,10 +7,10 @@
     <img src="http://139.59.61.161/setupdata5.jpg"/ style="border-radius:5px;">
 </a>
 <br>
-<h3>Instructions</h3>
+<h2>Instructions</h2>
 <p>The following are the guidelines to get your Azure Subscription ID, to assign the cognitive services keys and to deploy the Power BI report </p>
 <br>
-<h2>Getting your Azure Subscription ID for Input</h2>
+<h3>Getting your Azure Subscription ID for Input</h3>
 <br>
 <p>Login to your Azure account by navigating to https://portal.azure.com/</p>
 <img src="" alt="img" style="max-width: 100%;">
