@@ -1,9 +1,5 @@
 <h1>Keyword Sentiment Analysis</h1>
-<style>
-	img{
-		margin-top: 3%;
-	}
-</style>
+
 <a href="https://msdeployapp20190307110050.azurewebsites.net/" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
