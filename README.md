@@ -1,4 +1,9 @@
 <h1>Keyword Sentiment Analysis</h1>
+<style>
+	img{
+		margin-top: 3%;
+	}
+</style>
 <a href="https://msdeployapp20190307110050.azurewebsites.net/" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
@@ -14,7 +19,6 @@
 	<strong>
 		<li>Login to your Azure account by navigating to https://portal.azure.com/</li>
 	    <li>In the Search box type “Subscriptions”, Click on “Subscriptions” from search result</li>
-	    <br>
 	       <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/01.PNG" alt="image" style="max-width:100%;">
         <li>Click on your Subscription ID</li>
            <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/2.PNG" alt="image" style="max-width:100%;">
