@@ -8,3 +8,5 @@
 
 <br>
 <h3><b> Microsoft Deployment... </b></h3>
+&nbsp;&nbsp;
+<img src="http://139.59.61.161/setupdata5.jpg" style="max-width: 100%;"
