@@ -9,6 +9,6 @@
 <br>
 <h3>Instructions</h3>
 <p>The following are the guidelines to get your Azure Subscription ID, to assign the cognitive services keys and to deploy the Power BI report </p>
-<h4>Getting your Azure Subscription ID for Input</h4>
+<strong>Getting your Azure Subscription ID for Input</strong>
 <p>Login to your Azure account by navigating to https://portal.azure.com/</p>
 <img src="" alt="img" style="max-width: 100%;">
