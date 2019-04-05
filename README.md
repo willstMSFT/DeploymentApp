@@ -22,7 +22,7 @@
   </strong>
 </ol>
 <h3>How to assign Cognitive Service Keys to API connections</h3>
-<h4><strong>1. Bing Search</strong></h4>
+<h4><strong>Bing Search:</strong></h4>
 <ol>
 	<strong>
 		<li>Click on the “bingsearchtest” cognitive service in your deployed resource group</li>
@@ -35,7 +35,7 @@
 		   <img src="http://139.59.61.161/MicrosoftDeployment/2.%20Assigning%20Keys/04.PNG" alt="image" style="max-width:100%;">
 	</strong>
 </ol>
-<h4><strong>2. Text Analytics</strong></h4>
+<h4><strong>Text Analytics:</strong></h4>
 <ol>
 	<strong>
 		<li>Click on the “textanalyticstest” cognitive service in your deployed resource group</li>
