@@ -15,4 +15,5 @@
 	<li>In the Search box type “Subscriptions”, Click on “Subscriptions” from search result</li>
 	<img src="/Microsoft/Nonprofits/raw/master/ProductsAndServices/ActivisimAndAwareness/SocialListening/KeywordSentimentAnalysis/Microsoft-NewsTemplate/Resources/media/image10.png" alt="Image" style="max-width:100%;">
     <li>Click on your Subscription ID</li>
+    <li></li>
 </ol>
