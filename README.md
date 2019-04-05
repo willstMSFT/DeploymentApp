@@ -54,5 +54,9 @@
 		<li>Navigate to https://powerbi.microsoft.com/en-us/downloads/ to download Power BI Desktop</li>
 		<li>Click on “Advanced download options”</li>
            <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/1.PNG" alt="image" style="max-width:100%;">
+        <li>Read the instructions and click on download</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/2.PNG" alt="image" style="max-width:100%;">
+        <li>Select the required file according to your platform and click on next</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/3.PNG" alt="image" style="max-width:100%;">
 	</strong>
 </ol>
