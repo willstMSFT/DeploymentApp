@@ -13,7 +13,7 @@
 <ol>
 	<li>Login to your Azure account by navigating to https://portal.azure.com/</li>
 	<li>In the Search box type “Subscriptions”, Click on “Subscriptions” from search result</li>
-	  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1G2ITGDlOjNUR5dxuDV6yUUfcFfE0viwCfBH2KdioBvIg6zsQvg" alt="Image" style="max-width:100%;">
+	  <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/1.PNG" alt="Image" style="max-width:100%;">
     <li>Click on your Subscription ID</li>
       <img src="" alt="img" style="max-width: 100%;">
 </ol>
