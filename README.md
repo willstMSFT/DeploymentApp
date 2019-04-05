@@ -7,5 +7,7 @@
     <img src="http://139.59.61.161/setupdata5.jpg"/ style="border-radius:5px;">
 </a>
 <br>
-<h1></h1>
+<h3>Instructions</h3>
+<h4>Getting your Azure Subscription ID for Input</h4>
+<p>Login to your Azure account by navigating to https://portal.azure.com/</p>
 <img src="" alt="img" style="max-width: 100%;">
