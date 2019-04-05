@@ -8,7 +8,5 @@
 
 <br>
 <h3><b> Microsoft Deployment... </b></h3>
-<br>
-<br>
-<h1>TESTING</h1>
-<img src="http://139.59.61.161/setupdata5.jpg" alt="img"> style="max-width: 100%;"
+
+<img src="http://139.59.61.161/setupdata5.jpg" style="max-width: 100%;"
