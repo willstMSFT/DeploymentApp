@@ -33,7 +33,10 @@
 		   <img src="http://139.59.61.161/MicrosoftDeployment/2.%20Assigning%20Keys/003.PNG" alt="image" style="max-width:100%;">
 		<li>Click on the Edit API connection tab, paste the API key in the “API key” and click on save</li>
 		   <img src="http://139.59.61.161/MicrosoftDeployment/2.%20Assigning%20Keys/04.PNG" alt="image" style="max-width:100%;">
+    </strong>
+</ol>
 <h4><strong>Text Analytics:</strong></h4>
+<ol>
 		<li>Click on the “textanalyticstest” cognitive service in your deployed resource group</li>
 		   <img src="http://139.59.61.161/MicrosoftDeployment/2.%20Assigning%20Keys/05.PNG" alt="image" style="max-width:100%;">
 		<li>Click on the “Keys” tab and copy any one of the key</li>
@@ -42,5 +45,13 @@
 		   <img src="http://139.59.61.161/MicrosoftDeployment/2.%20Assigning%20Keys/07.PNG" alt="image" style="max-width:100%;">
 		<li>Click on the Edit API connection tab, paste the API key in the “Account key” and click on save</li>
 		   <img src="http://139.59.61.161/MicrosoftDeployment/2.%20Assigning%20Keys/08.PNG" alt="image" style="max-width:100%;">
+	</strong>
+</ol>
+<h3>How to deploy Power BI Report</h3>
+<ol>
+	<strong>
+		<li>Navigate to https://powerbi.microsoft.com/en-us/downloads/ to download Power BI Desktop</li>
+		<li>Click on “Advanced download options”</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/1.PNG" alt="image" style="max-width:100%;">
 	</strong>
 </ol>
