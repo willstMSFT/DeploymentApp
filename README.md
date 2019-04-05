@@ -70,5 +70,26 @@
            <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/8.PNG" alt="image" style="max-width:100%;">
         <li>Wait for the installation to complete</li>
            <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/9.png" alt="image" style="max-width:100%;">
+        <li>Once the installation is done, click on finish</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/10.png" alt="image" style="max-width:100%;">
+        <li>Power BI Desktop will be get loaded, sign in using your Microsoft account</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/11.PNG" alt="image" style="max-width:100%;">
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/12.PNG" alt="image" style="max-width:100%;">
+        <li>Open the “Sentiment Data Pipeline” report by clicking on File->Open and specify the path</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/13.png" alt="image" style="max-width:100%;">
+        <li>Report will be opened, click on “Edit Queries” in the Menu bar</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/14.PNG" alt="image" style="max-width:100%;">
+        <li>A new window called “Power Query Editor” will be opened, click on “Data Source settings”</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/15.PNG" alt="image" style="max-width:100%;">
+        <li>Click on the “Change Source” button on the popup</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/16.PNG" alt="image" style="max-width:100%;">
+        <li>Specify the server name that you were created and click on okay</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/17.PNG" alt="image" style="max-width:100%;">
+        <li>Now click on “Edit Permissions”</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/18.PNG" alt="image" style="max-width:100%;">
+        <li>Click on “Edit” in the popup</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/19.PNG" alt="image" style="max-width:100%;">
+        <li>In the “Database” tab enter your DB credentials and click on save</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/20.PNG" alt="image" style="max-width:100%;">
 	</strong>
 </ol>
