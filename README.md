@@ -12,11 +12,11 @@
 <h3>How to get Azure Subscription ID</h3>
 <ol>
 	<li><strong>Login to your Azure account by navigating to https://portal.azure.com/</strong></li>
-	<li>In the Search box type “Subscriptions”, Click on “Subscriptions” from search result</li>
+	<li><strong>In the Search box type “Subscriptions”, Click on “Subscriptions” from search result</strong></li>
 	  <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/01.PNG" alt="image" style="max-width:100%;">
-    <li>Click on your Subscription ID</li>
+    <li><strong>Click on your Subscription ID</strong></li>
       <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/2.PNG" alt="img" style="max-width:100%;">
-    <li>Grab your Subscription ID</li>
+    <li><strong>Grab your Subscription ID</strong></li>
       <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/3.PNG" alt="img" style="max-width:100%;">
 </ol>
 <h3></h3>
