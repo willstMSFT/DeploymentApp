@@ -15,6 +15,7 @@
 		<li>Login to your Azure account by navigating to https://portal.azure.com/</li>
 	    <li>In the Search box type “Subscriptions”, Click on “Subscriptions” from search result</li>
 	       <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/01.PNG" alt="image" style="max-width:100%;">
+	       <br>
         <li>Click on your Subscription ID</li>
            <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/2.PNG" alt="image" style="max-width:100%;">
         <li>Grab your Subscription ID</li>
@@ -91,5 +92,28 @@
            <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/19.PNG" alt="image" style="max-width:100%;">
         <li>In the “Database” tab enter your DB credentials and click on save</li>
            <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/20.PNG" alt="image" style="max-width:100%;">
+        <li></li>
+           <img src="" alt="image" style="max-width:100%;">
+           <img src="" alt="image" style="max-width:100%;">
+        <li></li>
+           <img src="" alt="image" style="max-width:100%;">
+        <li></li>
+           <img src="" alt="image" style="max-width:100%;">
+        <li></li>
+           <img src="" alt="image" style="max-width:100%;">
+        <li></li>
+           <img src="" alt="image" style="max-width:100%;">
+        <li></li>
+           <img src="" alt="image" style="max-width:100%;">
+        <li></li>
+           <img src="" alt="image" style="max-width:100%;">
+        <li></li>
+           <img src="" alt="image" style="max-width:100%;">
+        <li></li>
+           <img src="" alt="image" style="max-width:100%;">
+        <li></li>
+           <img src="" alt="image" style="max-width:100%;">
+         <li></li>
+           <img src="" alt="image" style="max-width:100%;">
 	</strong>
 </ol>
