@@ -37,6 +37,7 @@
 </ol>
 <h4><strong>Text Analytics:</strong></h4>
 <ol>
+	<strong>
 		<li>Click on the “textanalyticstest” cognitive service in your deployed resource group</li>
 		   <img src="http://139.59.61.161/MicrosoftDeployment/2.%20Assigning%20Keys/05.PNG" alt="image" style="max-width:100%;">
 		<li>Click on the “Keys” tab and copy any one of the key</li>
