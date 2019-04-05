@@ -28,9 +28,9 @@
 		<li>Click on the “bingsearchtest” cognitive service in your deployed resource group</li>
 		   <img src="http://139.59.61.161/MicrosoftDeployment/2.%20Assigning%20Keys/01.PNG" alt="image" style="max-width:100%;">
 		<li>Click on the “Keys” tab and copy any one of the key</li>
-		   <img src="http://139.59.61.161/MicrosoftDeployment/2.%20Assigning%20Keys/03.PNG" alt="image" style="max-width:100%;">
-		<li>Click on the “bingsearch” API connection</li>
 		   <img src="http://139.59.61.161/MicrosoftDeployment/2.%20Assigning%20Keys/02.PNG" alt="image" style="max-width:100%;">
+		<li>Click on the “bingsearch” API connection</li>
+		   <img src="http://139.59.61.161/MicrosoftDeployment/2.%20Assigning%20Keys/03.PNG" alt="image" style="max-width:100%;">
 		<li>Click on the Edit API connection tab, paste the API key in the “API key” and click on save</li>
 		   <img src="http://139.59.61.161/MicrosoftDeployment/2.%20Assigning%20Keys/04.PNG" alt="image" style="max-width:100%;">
 	</strong>
