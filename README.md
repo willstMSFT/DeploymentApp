@@ -69,6 +69,6 @@
         <li>Click on Install</li>
            <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/8.PNG" alt="image" style="max-width:100%;">
         <li>Wait for the installation to complete</li>
-           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/9.PNG" alt="image" style="max-width:100%;">
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/9.png" alt="image" style="max-width:100%;">
 	</strong>
 </ol>
