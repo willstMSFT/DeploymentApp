@@ -58,5 +58,17 @@
            <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/2.PNG" alt="image" style="max-width:100%;">
         <li>Select the required file according to your platform and click on next</li>
            <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/3.PNG" alt="image" style="max-width:100%;">
+        <li>Click on the downloaded file</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/4.PNG" alt="image" style="max-width:100%;">
+        <li>Follow the instructions on the setup file, click on next</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/5.PNG" alt="image" style="max-width:100%;">
+        <li>Accept the license and click on next</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/6.PNG" alt="image" style="max-width:100%;">  
+        <li>Specify your installation path and click on next</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/7.PNG" alt="image" style="max-width:100%;">
+        <li>Click on Install</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/8.PNG" alt="image" style="max-width:100%;">
+        <li>Wait for the installation to complete</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/5.PNG" alt="image" style="max-width:100%;">
 	</strong>
 </ol>
