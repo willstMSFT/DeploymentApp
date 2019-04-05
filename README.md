@@ -13,7 +13,7 @@
 <ol>
 	<li>Login to your Azure account by navigating to https://portal.azure.com/</li>
 	<li>In the Search box type “Subscriptions”, Click on “Subscriptions” from search result</li>
-	<img src="/Microsoft/Nonprofits/raw/master/ProductsAndServices/ActivisimAndAwareness/SocialListening/KeywordSentimentAnalysis/Microsoft-NewsTemplate/Resources/media/image10.png" alt="Image" style="max-width:100%;">
+	  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1G2ITGDlOjNUR5dxuDV6yUUfcFfE0viwCfBH2KdioBvIg6zsQvg" alt="Image" style="max-width:100%;">
     <li>Click on your Subscription ID</li>
-    <li></li>
+      <img src="" alt="img" style="max-width: 100%;">
 </ol>
