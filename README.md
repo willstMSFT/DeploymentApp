@@ -11,12 +11,12 @@
 <p>The following are the guidelines to get your Azure Subscription ID for input, to assign the cognitive services keys and to deploy the Power BI report.</p>
 <h3>How to get Azure Subscription ID</h3>
 <ol>
-	<li><strong>Login to your Azure account by navigating to https://portal.azure.com/</strong></li>
+	<strong><li><strong>Login to your Azure account by navigating to https://portal.azure.com/</strong></li>
 	<li><strong>In the Search box type “Subscriptions”, Click on “Subscriptions” from search result</strong></li>
 	  <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/01.PNG" alt="image" style="max-width:100%;">
     <li><strong>Click on your Subscription ID</strong></li>
       <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/2.PNG" alt="img" style="max-width:100%;">
     <li><strong>Grab your Subscription ID</strong></li>
-      <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/3.PNG" alt="img" style="max-width:100%;">
+      <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/3.PNG" alt="img" style="max-width:100%;"></strong>
 </ol>
 <h3></h3>
