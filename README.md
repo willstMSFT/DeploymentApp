@@ -14,7 +14,7 @@
 <ol>
 	<strong>
 		<li>Login to your Azure account by navigating to https://portal.azure.com/</li>
-	    <li>In the Search box type “Subscriptions”, Click on “Subscriptions” from search result</li>
+		<li>In the Search box type “Subscriptions”, Click on “Subscriptions” from search result</li>
 	       <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/01.PNG" alt="image" style="max-width:100%;">
         <li>Click on your Subscription ID</li>
            <img src="http://139.59.61.161/MicrosoftDeployment/1.%20Getting%20Subscription/2.PNG" alt="image" style="max-width:100%;">
@@ -92,28 +92,42 @@
            <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/19.PNG" alt="image" style="max-width:100%;">
         <li>In the “Database” tab enter your DB credentials and click on save</li>
            <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/20.PNG" alt="image" style="max-width:100%;">
-        <li></li>
-           <img src="" alt="image" style="max-width:100%;">
-           <img src="" alt="image" style="max-width:100%;">
-        <li></li>
-           <img src="" alt="image" style="max-width:100%;">
-        <li></li>
-           <img src="" alt="image" style="max-width:100%;">
-        <li></li>
-           <img src="" alt="image" style="max-width:100%;">
-        <li></li>
-           <img src="" alt="image" style="max-width:100%;">
-        <li></li>
-           <img src="" alt="image" style="max-width:100%;">
-        <li></li>
-           <img src="" alt="image" style="max-width:100%;">
-        <li></li>
-           <img src="" alt="image" style="max-width:100%;">
-        <li></li>
-           <img src="" alt="image" style="max-width:100%;">
-        <li></li>
-           <img src="" alt="image" style="max-width:100%;">
-         <li></li>
-           <img src="" alt="image" style="max-width:100%;">
+        <li>Click on “OK” and Click on “Close”</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/21.PNG" alt="image" style="max-width:100%;">
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/22.PNG" alt="image" style="max-width:100%;">
+        <li>Click on “STSqlServer” and change your server name</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/23.PNG" alt="image" style="max-width:100%;">
+        <li>Close the Query editor and save the changes</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/24.PNG" alt="image" style="max-width:100%;">
+        <li>Wait till the data gets loaded</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/25.PNG" alt="image" style="max-width:100%;">
+        <li>Once the data loading is completed click on the “Publish” button in the menu bar</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/26.PNG" alt="image" style="max-width:100%;">
+        <li>Click on save</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/27.PNG" alt="image" style="max-width:100%;">
+        <li>Sign in with your Microsoft account to publish the report to Power BI Service</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/28.png" alt="image" style="max-width:100%;">
+        <li>Enter your credentials and sign in</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/29.png" alt="image" style="max-width:100%;">
+        <li>Select “My Workspace”</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/30.png" alt="image" style="max-width:100%;">
+        <li>Wait till the report got published</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/31.png" alt="image" style="max-width:100%;">
+         <li>Click on the “Open” link to view the report in Power BI Service</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/32.png" alt="image" style="max-width:100%;">
+         <li>Sign in with your same Microsoft Account to login the Power BI Service</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/33.PNG" alt="image" style="max-width:100%;">
+        <li>Click on “Reports”</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/34.PNG" alt="image" style="max-width:100%;">
+        <li>Published report will be displayed</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/35.PNG" alt="image" style="max-width:100%;">
+        <li>To update the report with new data, click on “Refresh” button in Power BI Desktop</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/36.PNG" alt="image" style="max-width:100%;">
+        <li>Wait till all the data get refreshed</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/37.PNG" alt="image" style="max-width:100%;">
+        <li>After every refresh republish the report to Power BI Service</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/38.PNG" alt="image" style="max-width:100%;">
+        <li>Report will be republished once you click on replace</li>
+           <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/39.PNG" alt="image" style="max-width:100%;">
 	</strong>
 </ol>
