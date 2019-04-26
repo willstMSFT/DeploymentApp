@@ -14,19 +14,24 @@ namespace SetupDataApp.Controllers
         public static string dbname = "bingNews";
         public static string vdbuid;
         public static string vdbpwd;
+        public static string vdpbiurl;
 
-        
+
+
         public ActionResult Index()
         {
             return View();
         }
 
         
-        public ActionResult ReportPage(string dbsrc, string dbuid, string dbpwd)
+        public ActionResult ReportPage(string dbsrc, string dbuid, string dbpwd, string pbiurl)
         {
             vdbsrc = dbsrc;
             vdbuid = dbuid;
             vdbpwd = dbpwd;
+            vdpbiurl = pbiurl;
+
+            ViewBag.pbi = vdpbiurl;
 
             return View();
         }

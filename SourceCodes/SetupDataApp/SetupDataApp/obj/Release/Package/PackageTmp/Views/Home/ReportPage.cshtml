@@ -9,14 +9,19 @@
 <body>
     <div class="row">
         <div class="col-lg-offset-2 col-lg-6 col-sm-offset-1 col-sm-8">
-            <iframe width="933" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiYjY1MTIzYmQtZGZiZC00YjE4LTlhMmMtOWEwZjJmOTkzMjUwIiwidCI6Ijk0OWY4NTQyLWUwZDMtNGEyZS1iNzU0LTZiMjAyNzkzMjc4NSJ9" frameborder="0" allowFullScreen="true"></iframe>
+            <iframe id="pbiframe" width="933" height="700" src="" frameborder="0" allowFullScreen="true"></iframe>
         </div>
         <div class="col-lg-2 col-sm-2" style="margin-top: 10px;">
             <button type="submit" class="btn btn-primary" style="margin-left:150px;border-radius:5px;" onclick="window.location.href= '/Home/HomePage';">Settings</button>
         </div>
     </div>
-    
-
+    <input type="hidden" value="@ViewBag.pbi" id="hiddenurl" />
+    <script>
+        $(document).ready(function () {
+            var url = $("#hiddenurl").val();
+            $("#pbiframe").attr('src', url);
+        });
+    </script>
 
 </body>
 </html>
