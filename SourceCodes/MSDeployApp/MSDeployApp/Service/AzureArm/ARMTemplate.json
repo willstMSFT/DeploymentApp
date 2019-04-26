@@ -98,7 +98,7 @@
       "tags": {},
       "scale": null,
       "properties": {
-        "state": "Disabled",
+        "state": "Enabled",
         "definition": {
           "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
@@ -204,22 +204,20 @@
                           "cleanedText": "@{body('HTMLStripperWebHook')['NoTags']}",
                           "cleanedTextLength": "@body('HTMLStripperWebHook')['NoTagsLength']",
                           "docid": "@{Json(body('UrlCleaner'))?['triggerId']}",
-                          "imageHeight": "@items('For_each_2')['image']['thumbnail']['height']",
                           "imageUrl": "@{Json(body('MainImageExtractor'))?['ImageUrl']}",
-                          "imageWidth": "@items('For_each_2')['image']['thumbnail']['width']",
-                          "ingestDayPrecision": "@{Json(body('TimeUtilsWebHook'))?['DayPrecision']}",
-                          "ingestHourPrecision": "@{Json(body('TimeUtilsWebHook'))?['HourPrecision']}",
-                          "ingestMinutePrecision": "@{Json(body('TimeUtilsWebHook'))?['MinutePrecision']}",
-                          "ingestMonthPrecision": "@{Json(body('TimeUtilsWebHook'))?['MonthPrecision']}",
-                          "ingestTimestamp": "@{Json(body('TimeUtilsWebHook'))?['Timestamp']}",
-                          "ingestWeekPrecision": "@{Json(body('TimeUtilsWebHook'))?['WeekPrecision']}",
+                          "ingestDayPrecision": "@{items('For_each_2')?['datePublished']}",
+                          "ingestHourPrecision": "@{items('For_each_2')?['datePublished']}",
+                          "ingestMinutePrecision": "@{items('For_each_2')?['datePublished']}",
+                          "ingestMonthPrecision": "@{items('For_each_2')?['datePublished']}",
+                          "ingestTimestamp": "@{items('For_each_2')?['datePublished']}",
+                          "ingestWeekPrecision": "@{items('For_each_2')?['datePublished']}",
                           "keyPhraseJson": "@items('For_each')",
-                          "publishedDayPrecision": "@{Json(body('TimeUtilsWebHook_2'))?['DayPrecision']}",
-                          "publishedHourPrecision": "@{Json(body('TimeUtilsWebHook_2'))?['HourPrecision']}",
-                          "publishedMinutePrecision": "@{Json(body('TimeUtilsWebHook_2'))?['MonthPrecision']}",
-                          "publishedMonthPrecision": "@{Json(body('TimeUtilsWebHook_2'))?['MonthPrecision']}",
-                          "publishedTimestamp": "@{Json(body('TimeUtilsWebHook_2'))?['Timestamp']}",
-                          "publishedWeekPrecision": "@{Json(body('TimeUtilsWebHook_2'))?['WeekPrecision']}",
+                          "publishedDayPrecision": "@items('For_each_2')?['datePublished']",
+                          "publishedHourPrecision": "@{items('For_each_2')?['datePublished']}",
+                          "publishedMinutePrecision": "@{items('For_each_2')?['datePublished']}",
+                          "publishedMonthPrecision": "@{items('For_each_2')?['datePublished']}",
+                          "publishedTimestamp": "@{items('For_each_2')?['datePublished']}",
+                          "publishedWeekPrecision": "@{items('For_each_2')?['datePublished']}",
                           "sentimentScore": "@body('Detect_Sentiment')?['score']",
                           "sourceDomain": "@{body('UrlDomainWebHook')['host']}",
                           "sourceUrl": "@{Json(body('UrlCleaner'))?['newUri']}",
@@ -336,7 +334,7 @@
                   "type": "Function",
                   "inputs": {
                     "body": {
-                      "date": "@utcNow()"
+                      "date": "@convertFromUtc('2019-04-22T08:00:00.0000000Z', 'Pacific Standard Time')"
                     },
                     "function": {
                       "id": "[concat('/subscriptions/',parameters('SubscriptionId'),'/resourceGroups/ARM-DeployRG/providers/','Microsoft.Web/sites/', parameters('sites_function06af1xdwag_name'),  '/functions/TimeUtilsWebhook')]"
@@ -440,7 +438,7 @@
                 "method": "get",
                 "path": "/news/search",
                 "queries": {
-                  "count": "1",
+                  "count": "100",
                   "mkt": "en-US",
                   "offset": "0",
                   "q": "@body('Get_row')?['Keywords']",

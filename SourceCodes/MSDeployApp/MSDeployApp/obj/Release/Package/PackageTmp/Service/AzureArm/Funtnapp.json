@@ -574,11 +574,11 @@
 
                   "files": {
 
-                    "index.js": "{\r\n    \"inputs\": {\r\n        \"body\": {\r\n            \"date\": \"@utcNow()\"\r\n        },\r\n        \"function\": {\r\n            \"id\": \"/subscriptions/6efc9ada-f2b2-472d-9d8e-fb0ab1e29d0c/resourceGroups/AmnestyRG/providers/Microsoft.Web/sites/function06af1xdwag/functions/TimeUtilsWebhook\"\r\n        }\r\n    }\r\n}"
+                    "index.js": "\"module.exports = function (context, req) { context.log('JavaScript HTTP trigger function processed a request.'); context.res = { \\r\\n inputs\\\": {\\r\\n        \\\"body\\\": {\\r\\n            \\\"date\\\": \\\"@utcNow()\\\"\\r\\n        },\\r\\n        \\\"function\\\": {\\r\\n            \\\"id\\\": \\\"/subscriptions/6efc9ada-f2b2-472d-9d8e-fb0ab1e29d0c/resourceGroups/AmnestyRG/providers/Microsoft.Web/sites/function06af1xdwag/functions/TimeUtilsWebhook\\\"\\r\\n        }\\r\\n    }\\r\\n}\""
 
-                  }
-				}
-			},
+                      }
+                    }
+                  },
 			{
 				"apiVersion": "2016-08-01",
 

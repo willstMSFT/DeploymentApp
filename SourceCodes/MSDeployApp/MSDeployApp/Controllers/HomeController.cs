@@ -37,6 +37,7 @@ namespace MSDeployApp.Controllers
 
                 //Creating Resource Group
                 PowerShellInstance1.AddScript("$resourceGroupName = '" + rgname + "'");
+                PowerShellInstance1.AddScript("Select-AzureRmSubscription -SubscriptionID " + subsid);
                 PowerShellInstance1.AddScript("New-AzureRmResourceGroup -Name $resourceGroupName -Location 'westus'");
                 PowerShellInstance1.Invoke();
                 PowerShellInstance1.Commands.Clear();
@@ -44,6 +45,7 @@ namespace MSDeployApp.Controllers
                 //Deploying Dependent Resource's ARM Templates
                 string TempPath1 = Server.MapPath(@"~\Service\AzureArm\DependARMTemplate.json");
                 PowerShellInstance1.AddScript("$resourceGroupName = '" + rgname + "'");
+                PowerShellInstance1.AddScript("Select-AzureRmSubscription -SubscriptionID " + subsid);
                 PowerShellInstance1.AddScript("New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile " + TempPath1);
                 Collection<PSObject> rst = PowerShellInstance1.Invoke();
                 PowerShellInstance1.Commands.Clear();
@@ -73,6 +75,7 @@ namespace MSDeployApp.Controllers
 
                 //Deploying Azure Function App
                 PowerShellInstance1.AddScript("$resourceGroupName = '" + rgname + "'");
+                PowerShellInstance1.AddScript("Select-AzureRmSubscription -SubscriptionID " + subsid);
                 PowerShellInstance1.AddScript("New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile " + tempfile0);
                 Collection<PSObject> tfn = PowerShellInstance1.Invoke();
                 PowerShellInstance1.Commands.Clear();
@@ -122,6 +125,7 @@ namespace MSDeployApp.Controllers
                  
                 //Deploying ARM Template
                 PowerShellInstance1.AddScript("$resourceGroupName = '" + rgname + "'");
+                PowerShellInstance1.AddScript("Select-AzureRmSubscription -SubscriptionID " + subsid);
                 PowerShellInstance1.AddScript("New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile " +tempfile1);
                 Collection<PSObject> rst7 = PowerShellInstance1.Invoke();
                 PowerShellInstance1.Commands.Clear();
@@ -151,6 +155,7 @@ namespace MSDeployApp.Controllers
 
                 //Deploying ServerDB Template 
                 PowerShellInstance1.AddScript("$resourceGroupName = '" + rgname + "'");
+                PowerShellInstance1.AddScript("Select-AzureRmSubscription -SubscriptionID " + subsid);
                 PowerShellInstance1.AddScript("New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile " +tempfile2);
                 Collection<PSObject> tfn0 = PowerShellInstance1.Invoke();
                 PowerShellInstance1.Commands.Clear();
@@ -270,6 +275,7 @@ namespace MSDeployApp.Controllers
 
                 //Deploying ML_Resource LogicApp
                 PowerShellInstance1.AddScript("$resourceGroupName = '" + rgname + "'");
+                PowerShellInstance1.AddScript("Select-AzureRmSubscription -SubscriptionID " + subsid);
                 PowerShellInstance1.AddScript("New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile " +tempfile3);
                 Collection<PSObject> tfn1 = PowerShellInstance1.Invoke();
                 PowerShellInstance1.Commands.Clear();
@@ -298,6 +304,7 @@ namespace MSDeployApp.Controllers
 
                 //Deploying LogicApps_ML
                 PowerShellInstance1.AddScript("$resourceGroupName = '"+rgname+"'");
+                PowerShellInstance1.AddScript("Select-AzureRmSubscription -SubscriptionID " + subsid);
                 PowerShellInstance1.AddScript("New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile " +tempfile4);
                 Collection<PSObject> tfn2 = PowerShellInstance1.Invoke();
                  PowerShellInstance1.Commands.Clear();
