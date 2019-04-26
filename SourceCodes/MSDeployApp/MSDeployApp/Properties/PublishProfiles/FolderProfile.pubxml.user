@@ -271,10 +271,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MSDeployApp.dll">
-      <publishTime>04/26/2019 11:03:10</publishTime>
+      <publishTime>04/26/2019 16:19:40</publishTime>
     </File>
     <File Include="bin/MSDeployApp.pdb">
-      <publishTime>04/26/2019 11:03:10</publishTime>
+      <publishTime>04/26/2019 16:19:40</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>02/18/2018 09:44:54</publishTime>
@@ -535,7 +535,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/29/2019 16:58:19</publishTime>
     </File>
     <File Include="Service/AzureArm/ARMTemplate.json">
-      <publishTime>04/25/2019 20:27:07</publishTime>
+      <publishTime>04/26/2019 16:11:47</publishTime>
     </File>
     <File Include="Service/AzureArm/DependARMTemplate.json">
       <publishTime>01/30/2019 14:14:29</publishTime>
@@ -544,7 +544,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/14/2019 15:28:46</publishTime>
     </File>
     <File Include="Service/AzureArm/Funtnapp.json">
-      <publishTime>04/25/2019 20:44:14</publishTime>
+      <publishTime>04/26/2019 16:01:50</publishTime>
     </File>
     <File Include="Service/AzureArm/LogicApps_ML.json">
       <publishTime>04/25/2019 20:27:20</publishTime>
@@ -1000,7 +1000,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/29/2019 17:01:40</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/26/2019 10:58:29</publishTime>
+      <publishTime>04/26/2019 16:14:34</publishTime>
     </File>
   </ItemGroup>
 </Project>
