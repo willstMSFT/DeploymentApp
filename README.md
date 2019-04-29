@@ -71,6 +71,43 @@
 		 &nbsp;&nbsp;&nbsp;
 	</strong>
 </ol>
+<h3>Reconnection to be made in Logic App</h3>
+<ol>
+  <strong>
+    <li>Click on your LogicApp 'mainflowappnewclone_ARM'</li>
+     &nbsp;&nbsp;&nbsp;
+       <img src="http://139.59.61.161/MicrosoftDeployment/4.%20Logic%20App/000.PNG" alt="image" style="max-width:100%;">
+     &nbsp;&nbsp;&nbsp;
+    <li>Click on Edit</li>
+     &nbsp;&nbsp;&nbsp;
+       <img src="http://139.59.61.161/MicrosoftDeployment/4.%20Logic%20App/00.PNG" alt="image" style="max-width:100%;">
+     &nbsp;&nbsp;&nbsp;
+     <li>Click on Step 2 'Get row'</li>
+     &nbsp;&nbsp;&nbsp;
+       <img src="http://139.59.61.161/MicrosoftDeployment/4.%20Logic%20App/0.PNG" alt="image" style="max-width:100%;">
+     &nbsp;&nbsp;&nbsp;
+     <li>Click on 'Change connection'</li>
+     &nbsp;&nbsp;&nbsp;
+       <img src="http://139.59.61.161/MicrosoftDeployment/4.%20Logic%20App/1.PNG" alt="image" style="max-width:100%;">
+     &nbsp;&nbsp;&nbsp;
+     <li>Click on 'Add new connection'</li>
+     &nbsp;&nbsp;&nbsp;
+       <img src="http://139.59.61.161/MicrosoftDeployment/4.%20Logic%20App/2.PNG" alt="image" style="max-width:100%;">
+     &nbsp;&nbsp;&nbsp;
+     <li>Select your deployed server</li>
+     &nbsp;&nbsp;&nbsp;
+       <img src="http://139.59.61.161/MicrosoftDeployment/4.%20Logic%20App/3.PNG" alt="image" style="max-width:100%;">
+     &nbsp;&nbsp;&nbsp;
+    <li>Select your deployed database</li>
+     &nbsp;&nbsp;&nbsp;
+       <img src="http://139.59.61.161/MicrosoftDeployment/4.%20Logic%20App/4.PNG" alt="image" style="max-width:100%;">
+     &nbsp;&nbsp;&nbsp;
+    <li>Fill with the credentials</li>
+     &nbsp;&nbsp;&nbsp;
+       <img src="http://139.59.61.161/MicrosoftDeployment/4.%20Logic%20App/5.PNG" alt="image" style="max-width:100%;">
+     &nbsp;&nbsp;&nbsp;
+  </strong>
+</ol>
 <h3>How to deploy Power BI Report</h3>
 <ol>
 	<strong>
@@ -229,4 +266,17 @@
            <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/39.PNG" alt="image" style="max-width:100%;">
          &nbsp;&nbsp;&nbsp;
 	</strong>
+</ol>
+<h3>To get Power BI Web URL</h3>
+<ol>
+  <strong>
+       <li>On your Power BI Service, Click on File -> Publish To Web</li>
+        &nbsp;&nbsp;&nbsp;
+          <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/40.PNG" alt="image" style="max-width:100%;">
+        &nbsp;&nbsp;&nbsp;
+      <li>Copy your Power BI Web URL</li>
+       &nbsp;&nbsp;&nbsp;
+          <img src="http://139.59.61.161/MicrosoftDeployment/3.%20PBI/41.PNG" alt="image" style="max-width:100%;">
+       &nbsp;&nbsp;&nbsp;
+  </strong>
 </ol>
