@@ -9,6 +9,10 @@
 </a>
 <br>
 <h2>Instructions</h2>
+<p>The Deployment application is designed to help business users take advantage of the powerful features available with Artificial Intelligence (AI).  The application will take all of the ingredients for the cognitive pipeline and bring these resources together to make a functioning application that can be maintained by an organization in their Azure subscription.</p>
+<h3>Deployment Application</h3>
+<p>The Deployment Application is a .Net application that will capture variables in a form and pass those variables to the Azure API and initiate the deployment of the Keyword Sentiment analysis application to the specified Azure subscription and resource group.</p>
+<h4>Azure</h4>
 <p>The following are the guidelines to get your Azure Subscription ID for input, to assign the cognitive services keys and to deploy the Power BI report.</p>
 <h3>How to get Azure Subscription ID</h3>
 <ol>
